@@ -1,6 +1,6 @@
 # Petunjuk Penggunaan Git dan GitHub
 
-| Name | Peran | 
+| Nama | Peran | 
 | --- | --- |
 | Dr. Bambang Purnomosidi D. P. | Penulis utama |
 
