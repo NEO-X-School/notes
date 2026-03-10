@@ -2,7 +2,8 @@
 
 Repo ini berisi catatan-catatan sederhana, hanya digunakan untuk pengngat saja.
 
-1.  [`uv` - *Env* dan *Package Manager* untuk Python](uv/). [Upstream URL for uv](See: https://docs.astral.sh/uv).
+1.  [`uv` - *Env* dan *Package Manager* untuk Python](uv/). [Upstream URL for uv](https://docs.astral.sh/uv).
+2.  [Petunjuk Awal Penggunaan Git dan GItHub](petunjuk-git-github/). 
 
 
 ![Lisensi - CC BY-SA International 4.0](cc-by-sa--small.png)
