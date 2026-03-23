@@ -11,14 +11,31 @@ $ git config --global user.name "Nama Anda di GitHub"
 $ git config --global user.email email@domain.tld
 ```
 
-Isian di atas harus disesuaikan dengan nama serta email yang digunakan untuk mendaftar di GitHub. Untuk melihat konfigurasi yang sudah ada:
+Langkah ini cukup dilakukan sekali saja, kecuali jika ingin melakukan perubahan nama dan email. Isian di atas harus disesuaikan dengan nama serta email yang digunakan untuk mendaftar di GitHub. Untuk melihat konfigurasi yang sudah ada:
+
+```
+$ cat ~/.gitconfig
+[user]
+        email = bambangpdp@gmail.com
+        name = Bambang Purnomosidi D. P.
+[init]
+        defaultBranch = main
+```
+
+Atau:
 
 ```
 $ git config --list
-user.email=phylossophie@gmail.com
+user.email=bambangpdp@gmail.com
 user.name=Bambang Purnomosidi D. P.
-color.ui=true
+init.defaultbranch=main
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.url=https://github.com/NEO-X-School/notes
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.main.remote=origin
+branch.main.merge=refs/heads/main
 $
 ```
-
-Langkah ini cukup dilakukan sekali saja, kecuali jika ingin melakukan perubahan nama dan email.
