@@ -22,7 +22,7 @@ $ cat ~/.gitconfig
         defaultBranch = main
 ```
 
-Atau:
+Atau, jika sedang berada pada direktori aktif repo Git tertentu:
 
 ```
 $ git config --list
@@ -37,5 +37,19 @@ remote.origin.url=https://github.com/NEO-X-School/notes
 remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
 branch.main.remote=origin
 branch.main.merge=refs/heads/main
+$
+```
+
+Jika berada pada direktori yang bukan merupakan repo Git:
+
+```
+$ git config --list
+user.email=bambangpdp@gmail.com
+user.name=Bambang Purnomosidi D. P.
+init.defaultbranch=main
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
 $
 ```
