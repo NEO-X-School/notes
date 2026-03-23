@@ -17,9 +17,10 @@ Jika muncul versi (tergantung versi yang terinstall), maka kita bisa mulai mengg
 
 Git untuk Linux biasanya sudah ada pada masing-masing distro dan bisa diinstall dengan *package manager* dari distro yang bersangkutan. Sebagai contoh:
 
-1. OpenSuSE: zypper in git
-2. Arch Linux: pacman -S git
-3. Debian/Ubuntu: apt-get install git
+1. OpenSuSE dan turunannya: sudo zypper in git
+2. Arch Linux dan turunannya: sudo pacman -S git
+3. Debian dan turunannya: sudo apt install git
+4. RedHat dan turunannya: sudo dnf install git
 
 Silahkan melihat pada manual dari *package manager* di distro yang bersangkutan. 
 
