@@ -163,16 +163,23 @@ To https://github.com/bpdp/awesome-project
 $
 ```
 
+Berikut ini adalah penjelasan perintah-perintah yang digunakan di atas:
+
+1. `git add -A`: digunakan untuk menandai semua (A = All) perubahan yang telah dilakukan ke dalam *staging area* yaitu tempat sementara untuk menyimpan semua hasil perubahan yang akan dijadikan permanen.
+2. `git commit -m "Add: README.md"`: memasukkan semua perubahan yang telah ditandai untuk permanen ke *staging area*.
+3. `git push origin maini`: mengirimkan (*push) semua perubahan yang telah dipermanenkan di *staging area* ke remote repo.
+
 Cara ini lebih mudah tetapi mempunyai resiko jika terjadi kesalahan dalam edit. Cara yang lebih aman tetapi memerlukan langkah yang lebih panjang adalah `branching and merging`.
 
 ### Mengubah Isi dengan Branching and Merging
 
 Dengan menggunakan cara ini, setiap kali akan melakukan perubaham, perubahan itu dilakukan di komputer lokal dengan membuat suatu *cabang* yang nantinya digunakan untuk menampung perubahan-perubahan tersebut. Setelah itu, cabang itu yang akan dikirim ke repo GitHub untuk dimintai review kemudian digabungkan (`merge`) ke main. Secara umum, repo yang dibuat biasanya sudah mempunyai satu branch yang disebut dengan `main`. Cara ini lebih aman, terstruktur, terkendali, dan mempunyai *history* yang lebih baik. Jika perubahan yang kita buat sudah terlalu kacau dan kita menyesal, maka ada cara untuk "membersihkan" repo lokal kita. Secara umum, langkahnya adalah sebagai berikut:
 
-1. Buat *branch* untuk menampung perubahan-perubahan
+1. Buat *branch* untuk menampung perubahan-perubahan (*git branch -b nama-branch*)
 2. Lakukan perubahan-perubahan
 3. *Add* dan *commit* perubahan-perubahan tersebut ke *branch*
 4. Kembali ke repo main
+5. *Push branch* ke repo di GitHub (sering disebut *origin*) dengan perintah *git push origin nama-branch*. Untuk mengetahui URL dari *remote origin*, kita bisa menggunakan *git remote* kemudian melihat isi dari `.git/config`.
 5. Buat *pull request* di GitHub
 6. *Merge pull request* di GitHub
 7. *Merge branch* untuk menampung perubahan-perubahan tersebut ke main (dilakukan di lokal).
@@ -233,7 +240,7 @@ To https://github.com/bpdp/awesome-project
 $
 ```
 
-Setelah itu, kirim *pull request (PR)* dengan mengakses URL seperti yang telah ditampilkan pada pesan *push* di atas. Isikan pesan dari PR dan klik pada **Create pull request**:
+Setelah itu, kirim *pull request (PR)* dengan mengakses URL seperti yang telah ditampilkan pada pesan *push* di atas (https://github.com/bpdp/awesome-project/pull/new/edit-readme-1). Isikan pesan dari PR dan klik pada **Create pull request**:
 
 ![Membuat pull request](images/03/03-01-pull-request.png)
 
@@ -241,7 +248,7 @@ Setelah membuat PR, PR tersebut bisa di-merge. Perhatikan, jika muncul "No confl
 
 ![Merge pull request](images/03/03-02-pull-request.png)
 
-Setelah itu, `Confirm Merge`, branch yang kita kirimkan tadi sudah dimasukkan ke branch `main`. Setelah itu, merge di komputer lokal. Setelah proses *merge* di komputer lokal, branch tersebut bisa saja tetap ada di situ (untuk catatan saja) atau akan kita hapus. Dalam konteks ini, branch edit-readme-1 tersebut akan kita hapus menggunakan perintah `git branch -D`. Setelah itu kita sinkronisasi dengan remote di GitHub dengan perintah `git pull`:
+Setelah itu, `Confirm Merge`, branch yang kita kirimkan tadi sudah dimasukkan ke branch `main`. Setelah itu, merge di komputer lokal (*git merge nama-branch*). Setelah proses *merge* di komputer lokal, branch tersebut bisa saja tetap ada di situ (untuk catatan saja) atau akan kita hapus. Dalam konteks ini, branch edit-readme-1 tersebut akan kita hapus menggunakan perintah `git branch -D`. Setelah itu kita sinkronisasi dengan remote di GitHub dengan perintah `git pull`:
 
 ```bash
 $ git merge edit-readme-1
@@ -266,7 +273,7 @@ bpdp@NEO-X ~/tmp/gembus/awesome-project (main)
 $
 ```
 
-Pada pesan sukses *merge* di GitHub, kita bisa menghapus *branch* yang telah kita merge tersebut dengan meng-klik pada **Delete branch**:
+Pada pesan sukses *merge* di GitHub, kita bisa menghapus *branch* yang telah kita *merge* tersebut dengan meng-klik pada **Delete branch**:
 
 ![Merge pull request](images/03/03-03-pull-request.png)
 
@@ -334,38 +341,26 @@ aea8d64 (HEAD -> main, origin/main, origin/HEAD) Merge pull request #1 from bpdp
 5b6c1f7 (origin/edit-readme-1) Add: isi README.md
 acd9564 Add: README.md
 $ vim README.md
-$ git add -A
+$ cat README.md 
+# My Awesome Project
+
+Ini isi proyeka
+
+Ini isi 1
 $ git commit -m "Add: contents"
-[main c55fd06] Add: contents
- 1 file changed, 4 insertions(+), 1 deletion(-)
+[main 044b8de] Add: contents
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 $ git push origin main
-Username for 'https://github.com': oldstager
-Password for 'https://oldstager@github.com': 
+Username for 'https://github.com': bpdp
+Password for 'https://bpdp@github.com': 
 Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 335 bytes | 335.00 KiB/s, done.
-Total 3 (delta 0), reused 0 (delta 0)
-To https://github.com/oldstager/awesome-project
-   7e546b0..c55fd06  main -> main
+Writing objects: 100% (3/3), 298 bytes | 298.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/bpdp/awesome-project
+   aea8d64..044b8de  main -> main
 $ vim README.md
-$  git add -A
-$  git commit -m "Add: contents - 2"
-[main fed7e79] Add: contents - 2
- 1 file changed, 1 insertion(+)
-$ git push origin main
-Username for 'https://github.com': oldstager
-Password for 'https://oldstager@github.com': 
-Enumerating objects: 5, done.
-Counting objects: 100% (5/5), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 338 bytes | 338.00 KiB/s, done.
-Total 3 (delta 0), reused 0 (delta 0)
-To https://github.com/oldstager/awesome-project
-   c55fd06..fed7e79  main -> main
-$ cat README.md
+$ cat README.md 
 # My Awesome Project
 
 Ini isi proyeka
@@ -373,25 +368,60 @@ Ini isi proyeka
 Ini isi 1
 
 Ini isi 2
+$ git add -A
+$ git commit -m "Add: contents - 2"
+[main d5dfd14] Add: contents - 2
+ 1 file changed, 2 insertions(+)
+$ git push origin main
+Username for 'https://github.com': bpdp
+Password for 'https://bpdp@github.com': 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 302 bytes | 302.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/bpdp/awesome-project
+   044b8de..d5dfd14  main -> main
 $ git status
 On branch main
 Your branch is up to date with 'origin/main'.
 
 nothing to commit, working tree clean
-$
+$ 
 ```
 
-Contoh di atas adalah contoh untuk mengubah README.md dengan beberapa commit. Setelah itu, kita akan mengembalikan ke posisi terakhir sebelum commit terakhir.
+Contoh di atas adalah contoh untuk mengubah README.md dengan beberapa (2) *commit* diikuti dengan *push* ke GitHub. Apa yang terjadi jika kita menyadari bahwa konten yang kita buat salah dan kita ingin mengembalikan ke kondisi awal? Langkah berikut ini akan mengembalikan ke posisi terakhir sebelum *commit* terakhir. Lakukan proses ini di lokal pada direktori repo yang akan kita kembalikan kontennya:
+
 
 ```bash
 $ git revert HEAD
 ```
 
-Perintah di atas akan membuka editor. Pada editor tersebut kita bisa mengetikkan pesan *revert* ( = pesan commit untuk pembatalan). Setelah selesai, simpan:
+Perintah di atas akan membuka editor. Pada editor tersebut kita bisa mengetikkan pesan *revert* ( = pesan commit untuk pembatalan). Pesan default sudah cukup mewakili:
+
+```
+Revert "Add: contents - 2" 
+ 
+This reverts commit d5dfd143df0dfbd307bae44b2416c97a8fcc7b62. 
+ 
+# Please enter the commit message for your changes. Lines starting 
+# with '#' will be ignored, and an empty message aborts the commit. 
+# 
+# On branch main 
+# Your branch is up to date with 'origin/main'. 
+# 
+# Changes to be committed: 
+#       modified:   README.md 
+#
+```
+
+Setelah selesai, simpan:
 
 ```bash
-[main f800ced] Revert "Add: contents - 2"
- 1 file changed, 1 deletion(-)
+$ git revert HEAD
+[main d3f4d96] Revert "Add: contents - 2"
+ 1 file changed, 2 deletions(-)
 $
 ```
 
@@ -405,17 +435,16 @@ Your branch is ahead of 'origin/main' by 1 commit.
 
 nothing to commit, working tree clean
 $ git push origin main
-Username for 'https://github.com': oldstager
-Password for 'https://oldstager@github.com': 
+Username for 'https://github.com': bpdp
+Password for 'https://bpdp@github.com': 
 Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 347 bytes | 347.00 KiB/s, done.
-Total 3 (delta 1), reused 0 (delta 0)
-remote: Resolving deltas: 100% (1/1), completed with 1 local object.
-To https://github.com/oldstager/awesome-project
-   fed7e79..f800ced  main -> main
+Delta compression using up to 12 threads
+Compressing objects: 100% (1/1), done.
+Writing objects: 100% (3/3), 329 bytes | 329.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/bpdp/awesome-project
+   d5dfd14..d3f4d96  main -> main
 $ cat README.md
 # My Awesome Project
 
@@ -426,7 +455,9 @@ Ini isi 1
 $
 ```
 
-Jika commit sudah dilakukan, tetapi belum di-*push* ke repo GitHub (masih berada di lokal), cara membatalkannya:
+**Catatan**: sila periksa repo di GitHub, pembatalan telah dilakukan.
+
+Ada kalanya, *commit* sudah dilakukan, tetapi belum di-*push* ke repo GitHub (masih berada di lokal), cara membatalkannya dengan menggunakan perintah `git reset --hard HEAD^`:
 
 ```bash
 $ vim README.md
@@ -438,46 +469,164 @@ Ini isi proyeka
 Ini isi 1
 
 Ini isi tambahan 1
-
 $ git add -A
 $ git commit -m "Add: isi tambahan 1"
-[main 42e6bf0] Add: isi tambahan 1
+[main 118d802] Add: isi tambahan 1
  1 file changed, 2 insertions(+)
 $ git status
-On branch main 
+On branch main
 Your branch is ahead of 'origin/main' by 1 commit.
   (use "git push" to publish your local commits)
 
 nothing to commit, working tree clean
 $ git log --oneline
-42e6bf0 (HEAD -> main) Add: isi tambahan 1
-f800ced (origin/main, origin/HEAD) Revert "Add: contents - 2"
-fed7e79 Add: contents - 2
-c55fd06 Add: contents
-7e546b0 Merge pull request #1 from oldstager/edit-readme-1
-032d079 (origin/edit-readme-1) Add: isi README.md
-2ab2e28 Add: README.md
-8dd68d4 Initial commit
+118d802 (HEAD -> main) Add: isi tambahan 1
+d3f4d96 (origin/main, origin/HEAD) Revert "Add: contents - 2"
+d5dfd14 Add: contents - 2
+044b8de Add: contents
+aea8d64 Merge pull request #1 from bpdp/edit-readme-1
+5b6c1f7 (origin/edit-readme-1) Add: isi README.md
+acd9564 Add: README.md
 $ git reset --hard HEAD^
-HEAD is now at f800ced Revert "Add: contents - 2"
+HEAD is now at d3f4d96 Revert "Add: contents - 2"
 $ git status
 On branch main
 Your branch is up to date with 'origin/main'.
 
 nothing to commit, working tree clean
-$ cat README.md
+$ cat README.md 
+# My Awesome Project
+
+Ini isi proyeka
+
+Ini isi 1
+$ 
+```
+
+Bagaimana jika kita akan melalukan pembatalan untuk perubahan yang sudah lama dilakukan (setelah perubahan tersebut, banyak perubahan-perubahan telah dilakukan)? Untuk kembali ke perubahan pada saat yang sudah lama, yang perlu dilakukan adalah melakukan `git revert <posisi>` kemudian mengedit secara manual kemudian *push* ke repo.
+
+Berikut ini adalah log yang telah dilakukan dengan perubahan terakhir terjadi di paling atas:
+
+```bash
+$ git log --oneline
+d3f4d96 (HEAD -> main, origin/main, origin/HEAD) Revert "Add: contents - 2"
+d5dfd14 Add: contents - 2
+044b8de Add: contents
+aea8d64 Merge pull request #1 from bpdp/edit-readme-1
+5b6c1f7 (origin/edit-readme-1) Add: isi README.md
+acd9564 Add: README.md
+bpdp@NEO-X ~/tmp/gembus/awesome-project (main)
+$ 
+```
+
+Berikutnya, kita akan menambahkan 2 *push* ke repo GitHub (*push* pertama dengan pesan *commit* "Isi 2" dan isi perubahan pada README.md "Ini isi 2" dan push berikut dengan pesan *commit* "Isi 3" dan isi perubahan pada README.md "Ini isi 3"):
+
+_Push "Isi 2"_
+
+```bash
+$ vim README.md 
+$ cat README.md 
 # My Awesome Project
 
 Ini isi proyeka
 
 Ini isi 1
 
-$
+Ini isi 2
+$ git add -A
+$ git commit -m "Isi 2"
+[main 9478339] Isi 2
+ 1 file changed, 2 insertions(+)
+$ git push origin main
+Username for 'https://github.com': bpdp
+Password for 'https://bpdp@github.com': 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 295 bytes | 295.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/bpdp/awesome-project
+   d3f4d96..9478339  main -> main
+$ 
+
 ```
 
-Untuk kembali ke perubahan pada saat yang sudah lama, yang perlu dilakukan adalah melakukan `git revert <posisi>` kemudian mengedit secara manual kemudian push ke repo.
+_Push "Isi 3"_ 
 
 ```bash
+$ vim README.md 
+$ cat README.md 
+# My Awesome Project
+
+Ini isi proyeka
+
+Ini isi 1
+
+Ini isi 2
+
+Ini isi 3
+$ git add -A
+$ git commit -m "Isi 3"
+[main 16398a0] Isi 3
+ 1 file changed, 2 insertions(+)
+$ git push origin main
+Username for 'https://github.com': bpdp
+Password for 'https://bpdp@github.com': 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 298 bytes | 298.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/bpdp/awesome-project
+   9478339..16398a0  main -> main
+$ 
+```
+
+Bagaimana jika setelah *push* terakhir (push "Isi 3"), kita menyadari bahwa push "Isi 2" ternyata keliru? Gunakan perintah `git revert <posisi>`.
+
+```bash
+$ git log --oneline
+16398a0 (HEAD -> main, origin/main, origin/HEAD) Isi 3
+9478339 Isi 2
+d3f4d96 Revert "Add: contents - 2"
+d5dfd14 Add: contents - 2
+044b8de Add: contents
+aea8d64 Merge pull request #1 from bpdp/edit-readme-1
+5b6c1f7 (origin/edit-readme-1) Add: isi README.md
+acd9564 Add: README.md
+bpdp@NEO-X ~/tmp/gembus/awesome-project (main)
+$ 
+```
+
+Dari log tersebut, kita mengetahui bahwa id untuk *push* "Isi 2" adalah 9478339. Angka tersebut yang akan kita gunakan saat `git revert <posisi>` dengan perintah `git revert <9478339>`. 
+
+```bash
+$ git revert 9478339
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+error: could not revert 9478339... Isi 2
+hint: After resolving the conflicts, mark them with
+hint: "git add/rm <pathspec>", then run
+hint: "git revert --continue".
+hint: You can instead skip this commit with "git revert --skip".
+hint: To abort and get back to the state before "git revert",
+hint: run "git revert --abort".
+hint: Disable this message with "git config set advice.mergeConflict false"
+bpdp@NEO-X ~/tmp/gembus/awesome-project (main|REVERTING)
+$ 
+```
+
+
+
+```bash 
+
+
+
+
+
+
 $ cat README.md
 # My Awesome Project
 
@@ -506,29 +655,29 @@ hint: and commit the result with 'git commit'
 $
 ```
 
-Setelah itu, jika dilihat pada file, akan muncul tambahan untuk memudahkan meng-edit. File ini harus di-*resolve* terlebih dahulu, setelah itu baru di add dan commit:
+Setelah itu, jika dilihat pada file, akan muncul tambahan untuk memudahkan meng-edit:
 
-```bash
-$ cat README.md
+```bash 
+$ cat README.md 
 # My Awesome Project
 
 Ini isi proyeka
 
 Ini isi 1
-
 <<<<<<< HEAD
+
 Ini isi 2
 
 Ini isi 3
 =======
->>>>>>> parent of a7615fb... Add: isi 2
+>>>>>>> parent of 9478339 (Isi 2)
+$ 
 ```
 
-Edit file tersebut, setelah itu simpan.
+Perubahan pada file tersebut harus di-*resolve* terlebih dahulu, setelah itu baru di-*add* dan *commit*. Edit file tersebut, setelah itu simpan.
 
 ```bash
-$ vim README.md 
-$ cat README.md
+$ cat README.md 
 # My Awesome Project
 
 Ini isi proyek
@@ -537,61 +686,80 @@ Ini isi 1
 
 Ini isi 2 setelah revert
 
-Rni isi 3
+Ini isi 3
 $ git status
 On branch main
 Your branch is up to date with 'origin/main'.
 
-You are currently reverting commit a7615fb.
+You are currently reverting commit 9478339.
   (fix conflicts and run "git revert --continue")
+  (use "git revert --skip" to skip this patch)
   (use "git revert --abort" to cancel the revert operation)
 
 Unmerged paths:
-  (use "git reset HEAD <file>..." to unstage)
+  (use "git restore --staged <file>..." to unstage)
   (use "git add <file>..." to mark resolution)
-
 	both modified:   README.md
 
 no changes added to commit (use "git add" and/or "git commit -a")
-$
+$ 
 ```
 
-Setelah itu, lanjutkan proses revert. Saat `git revert --continue` isikan pesan revert.
+Setelah itu, lanjutkan proses revert. Saat `git revert --continue` isikan pesan *revert*.
 
 ```bash
-$ git add README.md
+$ git revert --continue
+Revert "Isi 2"
+
+This reverts commit 9478339c6394d8b9fe3e0c5e35feda659c278fb0.
+
+# Conflicts:
+#       README.md
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Your branch is up to date with 'origin/main'.
+#
+# You are currently reverting commit 9478339.
+#
+# Changes to be committed:
+#       modified:   README.md
+#
+```
+
+Setelah disimpan, akan ditampilkan pesan:
+
+```bash
+$ git revert --continue
+[main 7d68802] Revert "Isi 2"
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+bpdp@NEO-X ~/tmp/gembus/awesome-project (main)
+$ 
+``` 
+
+Posisi tersebut menunjukkan bahwa kita sudah melakukan proses untuk mengubah konten dan meneruskan proses *revert*. Tidak perlu *commit* secara eksplisit karena saat *revert* dan kemudian mengisikan pesan *revert* sudah merupakan proses untuk *commit*. Setelah itu *push* ke *remote origin*:
+
+```bash 
 $ git status
 On branch main
-Your branch is up to date with 'origin/main'.
-
-You are currently reverting commit a7615fb.
-  (all conflicts fixed: run "git revert --continue")
-  (use "git revert --abort" to cancel the revert operation)
-
-Changes to be committed:
-  (use "git reset HEAD <file>..." to unstage)
-
-	modified:   README.md
-
-$ git revert --continue
-[main dec93e1] Revert "Add: isi 2"
- 1 file changed, 3 insertions(+), 3 deletions(-)
-$ git status
-On branch main 
 Your branch is ahead of 'origin/main' by 1 commit.
   (use "git push" to publish your local commits)
 
 nothing to commit, working tree clean
-$ git push origin main
-Username for 'https://github.com': oldstager
-Password for 'https://oldstager@github.com': 
+$ git push origin main 
+Username for 'https://github.com': bpdp
+Password for 'https://bpdp@github.com': 
 Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 401 bytes | 401.00 KiB/s, done.
-Total 3 (delta 0), reused 0 (delta 0)
-To https://github.com/oldstager/awesome-project
-   b14810f..dec93e1 main-> main 
-$
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 357 bytes | 357.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/bpdp/awesome-project
+   16398a0..7d68802  main -> main
+$ 
 ```
+
+Proses selesai. Jika melihat ke repo GitHub, isi README.md telah berubah.
