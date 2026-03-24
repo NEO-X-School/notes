@@ -30,31 +30,80 @@ Untuk membuat repo, gunakan langkah-langkan berikut:
 
 3. Klik `Create Repository`
 
-Setelah langkah-langkah tersebut, repo akan dibuat dan bisa diakses menggunakan pola `https://github.com/username/reponame`. Pada repo tersebut, akan muncul file LICENSE jika memilih mengaktifkan lisensi tertentu. Jika memilih membuat README pada saat langkah ke 2, juga akan muncul README.md. Ada atau tidak ada README.md tidak mempunyai efek apapun pada langkah ini. Untuk mempermudah, kosongkan saja semua pilihan, kita akan membuat itu semua dengan proses-proses pengisian di GitHub.
+Setelah langkah-langkah tersebut, repo akan dibuat dan bisa diakses menggunakan pola `https://github.com/username/reponame` (`reponame` adalah nama yang anda isikan, pada konteks ini adalah `awesome-project`). Pada repo tersebut, akan muncul file LICENSE jika memilih mengaktifkan lisensi tertentu. Jika memilih membuat README pada saat langkah ke 2, juga akan muncul README.md. Ada atau tidak ada README.md tidak mempunyai efek apapun pada langkah ini. Untuk mempermudah, kosongkan saja semua pilihan, kita akan membuat itu semua dengan proses-proses pengisian di GitHub. File `.gitignore` akan berisi daftar file-file yang tidak akan dimasukkan ke repo saat kita melakukan proses *push*. Daftar file yang ada di `.gitignore` tersebut biasanya sesuai dengan konten dari repo (misalnya proyek yang akan kita buat adalah proyek Rust, maka kita bisa memilih khusus untuk Rust - file-file apa saja yang tidak akan di-*push*). Daftar file tersebut nanti bisa kita edit lagi dengan mengedit file `.gitignore`.
+
+Setelah selesai mengisi dan klik pada `Create Repository`, GitHub akan membuat repo kita sesuai dengan isian yang kita isikan dan kemudian akan menampilkan langsung isi dari repo kita. Jika kita memilih kondisi default (tanpa README, .gitignoe, LICENSE), maka repo kita akan kosong dan GitHub akan menampilkan info berikut:
+
+![Hasil pembuatan repo baru dengan isian default](images/03/03-03-new-repo.png)
 
 ## Clone Repo
 
 Proses `clone` adalah proses untuk menduplikasikan remote repo di GitHub ke komputer lokal. Untuk melakukan proses `clone`, gunakan perintah berikut:
 
 ```bash
-$ git clone https://github.com/oldstager/awesome-project
+$ git clone https://github.com/bpdp/awesome-project
 Cloning into 'awesome-project'...
-remote: Enumerating objects: 3, done.
-remote: Counting objects: 100% (3/3), done.
-remote: Compressing objects: 100% (2/2), done.
-remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
-Unpacking objects: 100% (3/3), done.
+warning: You appear to have cloned an empty repository.
+$ tree awesome-project/
+awesome-project/
+
+0 directories, 0 files
+$
 ```
 
 **Catatan**: jika repo yang akan di-*clone* masih kosong, akan muncul peringatan bahwa repo tersebut kosong. Dalam kasus seperti ini, biarkan saja, tidak masalah.
 
-Setelah perintah ini, di direktori `awesome-project` akan disimpan isi repo yang sama dengan di GitHub. Perbedaannya, di komputer lokal terdapat direktori `.git` yang digunakan secara internal oleh Git. Setiap repo Git akan mempunyai *branch* atau cabang. Pada awalnya, GitHub menggunakan istilah *master* untuk *branch* utama dan merupakan *branch* yang otomatis dibuat saat membuat repo di GitHub. Saat ini terjadi perubahan istilah menjadi **main**, bukan lagi **master**. Oleh karena itu, perlu dibuat perubahan setelah membuat repo karena Git lokal masih menggunakan istilah **master**. Cara melakukan perubahan:
+Setelah perintah ini, di direktori `awesome-project` akan disimpan isi repo yang sama dengan di GitHub. Perbedaannya, di komputer lokal terdapat direktori `.git` yang digunakan secara internal oleh Git. 
+
+```bash
+$ cd awesome-project
+$ ls -la
+total 0
+drwxr-xr-x 3 bpdp bpdp  18 Mar 24 06:50 .
+drwxr-xr-x 3 bpdp bpdp  29 Mar 24 06:50 ..
+drwxr-xr-x 6 bpdp bpdp 103 Mar 24 06:50 .git
+$ tree .git/
+.git/
+├── config
+├── description
+├── HEAD
+├── hooks
+│   ├── applypatch-msg.sample
+│   ├── commit-msg.sample
+│   ├── fsmonitor-watchman.sample
+│   ├── post-update.sample
+│   ├── pre-applypatch.sample
+│   ├── pre-commit.sample
+│   ├── pre-merge-commit.sample
+│   ├── prepare-commit-msg.sample
+│   ├── pre-push.sample
+│   ├── pre-rebase.sample
+│   ├── pre-receive.sample
+│   ├── push-to-checkout.sample
+│   ├── sendemail-validate.sample
+│   └── update.sample
+├── info
+│   └── exclude
+├── objects
+│   ├── info
+│   └── pack
+└── refs
+    ├── heads
+    └── tags
+
+9 directories, 18 files
+$
+```
+
+Setiap repo Git akan mempunyai *branch* atau cabang, jadi untuk setiap repo kita bisa mempunyai 1 *branch* utama (master/main) dan berbagai perubahan terhadap isi repo utama tersebut (disebut dengan *branch*). Pada awalnya, GitHub menggunakan istilah *master* untuk *branch* utama dan merupakan *branch* yang otomatis dibuat saat membuat repo di GitHub. Saat ini terjadi perubahan istilah menjadi **main**, bukan lagi **master**. Oleh karena itu, perlu dibuat perubahan setelah membuat repo karena Git lokal masih menggunakan istilah **master**. Cara melakukan perubahan:
 
 ```bash
 $ cd awesome-project
 $ git branch -m main
 $
 ```
+
+**Catatan**: tidak semua repo melakukan perubahan ini. Pengubahan *master* ke *main* hanya merupakan kesepakatan saja dan bukan merupakan kewajiban.
 
 ## Mengelola Repo
 
@@ -89,30 +138,28 @@ $ cat README.md
 
 $ git status
 On branch main
-Your branch is up to date with 'origin/main'.
+
+No commits yet
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
-
-	README.md
+        README.md
 
 nothing added to commit but untracked files present (use "git add" to track)
 $ git add -A
 $ git commit -m "Add: README.md"
-[main 2ab2e28] Add: README.md
+[main (root-commit) acd9564] Add: README.md
  1 file changed, 2 insertions(+)
  create mode 100644 README.md
 $ git push origin main
-Username for 'https://github.com': oldstager
-Password for 'https://oldstager@github.com': 
-Enumerating objects: 4, done.
-Counting objects: 100% (4/4), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (3/3), 324 bytes | 324.00 KiB/s, done.
-Total 3 (delta 0), reused 0 (delta 0)
-To https://github.com/oldstager/awesome-project
-   8dd68d4..2ab2e28  main -> main
+Username for 'https://github.com': bpdp
+Password for 'https://bpdp@github.com':
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 252 bytes | 252.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/bpdp/awesome-project
+ * [new branch]      main -> main
 $
 ```
 
@@ -120,16 +167,18 @@ Cara ini lebih mudah tetapi mempunyai resiko jika terjadi kesalahan dalam edit. 
 
 ### Mengubah Isi dengan Branching and Merging
 
-Dengan menggunakan cara ini, setiap kali akan melakukan perubaham, perubahan itu dilakukan di komputer lokal dengan membuat suatu *cabang* yang nantinya digunakan untuk menampung perubahan-perubahan tersebut. Setelah itu, cabang itu yang akan dikirim ke repo GitHub untuk dimintai review kemudian digabungkan (`merge`) ke main. Secara umum, repo yang dibuat biasanya sudah mempunyai satu branch yang disebut dengan `main`. Cara ini lebih aman, terstruktur, terkendali, dan mempunyai history yang lebih baik. Jika perubahan yang kita buat sudah terlalu kacau dan kita menyesal, maka ada cara untuk "membersihkan" repo lokal kita. Secara umum, langkahnya adalah sebagai berikut:
+Dengan menggunakan cara ini, setiap kali akan melakukan perubaham, perubahan itu dilakukan di komputer lokal dengan membuat suatu *cabang* yang nantinya digunakan untuk menampung perubahan-perubahan tersebut. Setelah itu, cabang itu yang akan dikirim ke repo GitHub untuk dimintai review kemudian digabungkan (`merge`) ke main. Secara umum, repo yang dibuat biasanya sudah mempunyai satu branch yang disebut dengan `main`. Cara ini lebih aman, terstruktur, terkendali, dan mempunyai *history* yang lebih baik. Jika perubahan yang kita buat sudah terlalu kacau dan kita menyesal, maka ada cara untuk "membersihkan" repo lokal kita. Secara umum, langkahnya adalah sebagai berikut:
 
-1. Buat branch untuk menampung perubahan-perubahan
+1. Buat *branch* untuk menampung perubahan-perubahan
 2. Lakukan perubahan-perubahan
-3. Add dan commit perubahan-perubahan tersebut ke branch
+3. *Add* dan *commit* perubahan-perubahan tersebut ke *branch*
 4. Kembali ke repo main
-5. Buat pull request di GitHub
-6. Merge pull request di GitHub
-7. Merge branch untuk menampung perubahan-perubahan tersebut ke main.
+5. Buat *pull request* di GitHub
+6. *Merge pull request* di GitHub
+7. *Merge branch* untuk menampung perubahan-perubahan tersebut ke main (dilakukan di lokal).
 8. Selesai.
+
+Berikut adalah gambarannya:
 
 ```bash
 $ git checkout -b edit-readme-1
@@ -143,73 +192,83 @@ $ git status
 On branch edit-readme-1
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
-  (use "git checkout -- <file>..." to discard changes in working directory)
-
-	modified:   README.md
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
 
 no changes added to commit (use "git add" and/or "git commit -a")
 $ git add -A
 $ git commit -m "Add: isi README.md"
-[edit-readme-1 032d079] Add: isi README.md
+[edit-readme-1 5b6c1f7] Add: isi README.md
  1 file changed, 1 insertion(+)
 $ git checkout main
 Switched to branch 'main'
 Your branch is up to date with 'origin/main'.
-$ git status
-On branch main 
-Your branch is up to date with 'origin/main'.
-
-nothing to commit, working tree clean
+$ git remote
+origin
+$ cat .git/config
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+[remote "origin"]
+        url = https://github.com/bpdp/awesome-project
+        fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "main"]
+        remote = origin
+        merge = refs/heads/main
 $ git push origin edit-readme-1
-Username for 'https://github.com': oldstager
-Password for 'https://oldstager@github.com':
+Username for 'https://github.com': bpdp
+Password for 'https://bpdp@github.com':
 Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (3/3), 338 bytes | 338.00 KiB/s, done.
-Total 3 (delta 0), reused 0 (delta 0)
+Writing objects: 100% (3/3), 298 bytes | 298.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
 remote:
 remote: Create a pull request for 'edit-readme-1' on GitHub by visiting:
-remote:      https://github.com/oldstager/awesome-project/pull/new/edit-readme-1
+remote:      https://github.com/bpdp/awesome-project/pull/new/edit-readme-1
 remote:
-To https://github.com/oldstager/awesome-project
+To https://github.com/bpdp/awesome-project
  * [new branch]      edit-readme-1 -> edit-readme-1
 $
-
 ```
 
-Setelah itu, kirim *pull request (PR)*:
+Setelah itu, kirim *pull request (PR)* dengan mengakses URL seperti yang telah ditampilkan pada pesan *push* di atas. Isikan pesan dari PR dan klik pada **Create pull request**:
 
 ![Membuat pull request](images/03/03-01-pull-request.png)
 
-Setelah membuat PR, PR tersebut bisa di-merge:
+Setelah membuat PR, PR tersebut bisa di-merge. Perhatikan, jika muncul "No conflict with base branch" maka PR tersebut aman untuk di-*merge*.
 
 ![Merge pull request](images/03/03-02-pull-request.png)
 
-Setelah itu, `Confirm Merge`, branch yang kita kirimkan tadi sudah dimasukkan ke branch `main`. Setelah itu, merge di komputer lokal:
+Setelah itu, `Confirm Merge`, branch yang kita kirimkan tadi sudah dimasukkan ke branch `main`. Setelah itu, merge di komputer lokal. Setelah proses *merge* di komputer lokal, branch tersebut bisa saja tetap ada di situ (untuk catatan saja) atau akan kita hapus. Dalam konteks ini, branch edit-readme-1 tersebut akan kita hapus menggunakan perintah `git branch -D`. Setelah itu kita sinkronisasi dengan remote di GitHub dengan perintah `git pull`:
 
 ```bash
 $ git merge edit-readme-1
-Updating 2ab2e28..032d079
+Updating acd9564..5b6c1f7
 Fast-forward
  README.md | 1 +
  1 file changed, 1 insertion(+)
 $ git branch -D edit-readme-1
-Deleted branch edit-readme-1 (was 032d079).
+Deleted branch edit-readme-1 (was 5b6c1f7).
 $ git branch
 * main
 $ git pull
 remote: Enumerating objects: 1, done.
 remote: Counting objects: 100% (1/1), done.
-remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
-Unpacking objects: 100% (1/1), done.
-From https://github.com/oldstager/awesome-project
-   2ab2e28..7e546b0  main     -> origin/main
-Updating 032d079..7e546b0
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (1/1), 908 bytes | 908.00 KiB/s, done.
+From https://github.com/bpdp/awesome-project
+   acd9564..aea8d64  main       -> origin/main
+Updating 5b6c1f7..aea8d64
 Fast-forward
+bpdp@NEO-X ~/tmp/gembus/awesome-project (main)
 $
 ```
+
+Pada pesan sukses *merge* di GitHub, kita bisa menghapus *branch* yang telah kita merge tersebut dengan meng-klik pada **Delete branch**:
+
+![Merge pull request](images/03/03-03-pull-request.png)
 
 ### Sinkronisasi
 
@@ -228,13 +287,12 @@ Praktik yang baik adalah membuat *branch* pada saat kita akan melakukan perubaha
 ```bash
 $ git checkout -b edit-readme-2
 Switched to a new branch 'edit-readme-2'
+$ git branch
+* edit-readme-2
+  main
 $ vim README.md
-$ cat README.md
-# My Awesome Project
-
-Ini isi proyek. Jadi agak kacau nih
 $ git checkout main
-M	README.md
+M       README.md
 Switched to branch 'main'
 Your branch is up to date with 'origin/main'.
 $ cat README.md
@@ -242,15 +300,13 @@ $ cat README.md
 
 Ini isi proyek. Jadi agak kacau nih
 $ git branch -D edit-readme-2
-Deleted branch edit-readme-2 (was 7e546b0).
-$ git branch
-* main
+Deleted branch edit-readme-2 (was aea8d64).
 $ cat README.md
 # My Awesome Project
 
 Ini isi proyek. Jadi agak kacau nih
 $ git reset --hard
-HEAD is now at 7e546b0 Merge pull request #1 from oldstager/edit-readme-1
+HEAD is now at aea8d64 Merge pull request #1 from bpdp/edit-readme-1
 $ cat README.md
 # My Awesome Project
 
@@ -260,7 +316,13 @@ $
 
 ### Undo Commit Terakhir
 
-Suatu saat, mungkin kita sudah terlanjur mem-*push* perubahan ke repo GitHub, setelah itu kita baru menyadari bahwa perubahan tersebut salah. Untuk itu, kita bisa melakukan `git revert`.
+Suatu saat, mungkin kita sudah terlanjur mem-*push* perubahan ke repo GitHub tanpa melalui *branching and merging*, setelah itu kita baru menyadari bahwa perubahan tersebut salah. Untuk itu, kita bisa melakukan `git revert`. 
+
+Jika kita melakukan proses *branching and merging*, maka yang perlu kita lakukan hanya membuka URL tempat merge kita lakukan dan kemudian klik pada *revert* setelah itu membuat PR untuk proses *revert* dengan mengikuti langkah-langkah di GitHub. 
+
+![Revert di GitHub](images/03/03-04-pull-request.png)
+
+Kondisi akan lebih rumit jika kita tidak menggunakan *branch and merging*. Berikut adalah langkah-langkahnya. Pada contoh ini, kita melakukan 2 kali perubahan dan masing-masing perubahan tersebut sudah kita *push* ke GitHub tanpa *branching and merging*.
 
 ```bash
 $ cat README.md
@@ -268,10 +330,9 @@ $ cat README.md
 
 Ini isi proyek
 $ git log --oneline
-7e546b0 (HEAD -> main, origin/main, origin/HEAD) Merge pull request #1 from oldstager/edit-readme-1
-032d079 (origin/edit-readme-1) Add: isi README.md
-2ab2e28 Add: README.md
-8dd68d4 Initial commit
+aea8d64 (HEAD -> main, origin/main, origin/HEAD) Merge pull request #1 from bpdp/edit-readme-1
+5b6c1f7 (origin/edit-readme-1) Add: isi README.md
+acd9564 Add: README.md
 $ vim README.md
 $ git add -A
 $ git commit -m "Add: contents"
@@ -320,7 +381,7 @@ nothing to commit, working tree clean
 $
 ```
 
-Contoh di atas adalah contoh untuk mengubah README.md dengan beberapa commit. Setelh itu, kita akan mengembalikan ke posisi terakhir sebelum commit terakhir.
+Contoh di atas adalah contoh untuk mengubah README.md dengan beberapa commit. Setelah itu, kita akan mengembalikan ke posisi terakhir sebelum commit terakhir.
 
 ```bash
 $ git revert HEAD
