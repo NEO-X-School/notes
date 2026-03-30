@@ -1,8 +1,8 @@
 # Petunjuk Penggunaan Git dan GitHub
 
-| Nama | Peran | 
-| --- | --- |
-| Dr. Bambang Purnomosidi D. P. | Penulis utama |
+| Nama | Peran | Pembaruan Terakhir |
+| --- | --- | --- |
+| Dr. Bambang Purnomosidi D. P. | Penulis utama | 24 Maret 2026 |
 
 Dokumen ini menjelaskan sedikit tentang cara menggunakan Git dan GitHub untuk keperluan pengelolaan dokumen digital - kode sumber, dokumentasi, dan lain-lain. Membahas tentang Git memerlukan materi yang cukup banyak, tetapi pada repo ini hanya akan dibahas pemakaian praktis. Jika menghendaki pemakaian lebih lanjut, bisa membaca dokumentasi di [Website Git](https://www.git-scm.com). Urutan pembahasan adalah sebagai berikut:
 
