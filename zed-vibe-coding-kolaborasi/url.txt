@@ -1,0 +1,33 @@
+https://dev.to/ajitkumar/the-complete-guide-to-ollama-run-large-language-models-locally-2mge
+https://ollama.com/search
+https://www.openxcell.com/blog/llama-cpp-vs-ollama/
+https://medium.com/h7w/setting-up-a-lightweight-vibe-coding-lab-with-zed-and-ollama-step-by-step-fe7ea6c99fb9
+https://emergingai.substack.com/p/free-resources-to-build-ai-agents
+
+Ollama is a versatile tool for running various open-source large language models (LLMs) locally on macOS, Linux, and Windows, allowing for privacy and offline usage. It supports models ranging from small 1B parameter models to large 70B+ models, providing they fit in your system's memory (RAM/VRAM). 
+
+Here are the key models and categories that can be used locally with Ollama:
+
+Top & Most Popular Models
+
+Llama 3.2 & 3.3/4: Considered the "gold standard" for versatility, ranging from 1B-3B for mobile/entry-level to 70B+ for high-end workstations.
+Qwen 2.5 & 3: A powerful, multilingual series from Alibaba that excels in coding, mathematics, and general reasoning.
+DeepSeek-V3 & R1: Highly regarded for "chain-of-thought" reasoning and coding tasks.
+Mistral & Mixtral: Known for being highly efficient and excellent at following prompts.
+Phi-4 (Microsoft): A "small" 14B model that provides high-level logic, ideal for laptops without massive GPUs.
+Gemma 2 (Google): A lightweight, open-weight model suited for creative writing and research. 
+
+Specialized Models
+Coding: codellama, deepseek-coder, qwen-coder.
+Vision/Multimodal: llava, moondream, llama3.2-vision, qwen3-vl (for image analysis).
+Embeddings: nomic-embed-text, all-minilm (for Retrieval-Augmented Generation/RAG).
+Thinking/Reasoning: deepseek-r1, qwen3-thinking. 
+
+Hardware Considerations for Local Use
+
+Ollama uses 4-bit quantization by default to make models faster and smaller. 
+Entry-Level (8GB+ RAM/VRAM): 1B–7B models (e.g., Llama 3.2 3B, Phi-3, Gemma 2 9B).
+Mid-Range (12GB–16GB VRAM): 13B–14B models.
+High-End (24GB+ VRAM): 30B–70B+ models. 
+
+You can see the full list of available models and pull them directly in your terminal using the ollama run <model_name> command.
