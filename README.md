@@ -1,9 +1,12 @@
 # Notes
 
-Repo ini berisi catatan-catatan sederhana, hanya digunakan untuk pengngat saja.
+[By human - not Generative AI](images/by-human.svg)
+
+Repo ini berisi catatan-catatan penggunaan berbagai peranti pengembangan yang digunakan di NEO-X School.
 
 1.  [`uv` - *Env* dan *Package Manager* untuk Python](uv/). [Upstream URL for uv](https://docs.astral.sh/uv).
 2.  [Petunjuk Awal Penggunaan Git dan GItHub](petunjuk-git-github/). 
+3.  [Vibe Coding dan Kolaborasi di Zed](zed-vibe-coding-kolaborasi/).
 
 
 ![Lisensi - CC BY-SA International 4.0](cc-by-sa--small.png)
