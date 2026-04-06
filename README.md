@@ -1,6 +1,6 @@
 # Notes
 
-[By human - not Generative AI - image taken from https://github.com/Supercip971/by-human](images/by-human.png)
+![By human - not Generative AI - image taken from https://github.com/Supercip971/by-human](images/by-human.png)
 
 
 Repo ini berisi catatan-catatan penggunaan berbagai peranti pengembangan yang digunakan di NEO-X School.
