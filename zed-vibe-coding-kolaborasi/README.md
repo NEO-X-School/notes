@@ -84,7 +84,7 @@ Untuk menguji:
 
 ```
 >>> write me an example of python test for async function
-```
+\```
 import asyncio
 from unittest.mock import patch
 
@@ -96,7 +96,7 @@ class TestAsyncFunction:
     async def test_my_async_function(self, mock_sleep):
         result = await my_async_function(5)
         self.assertEqual(result, 6)
-```
+\```
 This example shows how to write a unit test for an asynchronous function in Python using the `unittest` module and the `asyncio` module. The `my_async_function` 
 function takes an integer `x` as input and returns its successor. The `TestAsyncFunction` class contains one test method, `test_my_async_function`, which calls 
 `my_async_function` with the argument 5 and checks that the returned value is equal to 6.
