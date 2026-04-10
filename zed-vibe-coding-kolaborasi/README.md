@@ -82,40 +82,6 @@ success
 
 Untuk menguji:
 
-```
->>> write me an example of python test for async function
-```` ``` ````
-import asyncio
-from unittest.mock import patch
-
-async def my_async_function(x):
-    return x + 1
-
-class TestAsyncFunction:
-    @patch('asyncio.sleep')
-    async def test_my_async_function(self, mock_sleep):
-        result = await my_async_function(5)
-        self.assertEqual(result, 6)
-```` ``` ````
-This example shows how to write a unit test for an asynchronous function in Python using the `unittest` module and the `asyncio` module. The `my_async_function` 
-function takes an integer `x` as input and returns its successor. The `TestAsyncFunction` class contains one test method, `test_my_async_function`, which calls 
-`my_async_function` with the argument 5 and checks that the returned value is equal to 6.
-
-The `@patch('asyncio.sleep')` decorator is used to patch the `sleep` function of the `asyncio` module, which is used internally by the `my_async_function` function. 
-This allows us to control the execution of the `sleep` function during the test and make it return a specific value or raise an exception as needed.
-
-The `async def` keyword is used to define an asynchronous function in Python 3.5+. In this example, the `my_async_function` function is defined with the `async` 
-keyword and uses the `await` keyword to pause the execution of the function until a result is returned from the `sleep` function. The `async/await` syntax allows us 
-to write asynchronous code that looks like synchronous code, making it easier to reason about and test.
-
-The `self` parameter in the test method represents an instance of the `TestAsyncFunction` class, which is used to call the `my_async_function` function and check its 
-results. The `mock_sleep` parameter is a patched version of the `sleep` function that allows us to control its behavior during the test.
-
-Overall, this example demonstrates how to write unit tests for asynchronous functions in Python using the `unittest` module and the `asyncio` module.
-
->>> Send a message (/? for help)
-```
-
 ![Menguji codellama](images/ollama-prompt-example-01-python-test-async.png)
 
 2.  Menggunakan OpenRouter
