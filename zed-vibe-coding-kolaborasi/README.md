@@ -78,6 +78,8 @@ success
 >>> Send a message (/? for help)
 ```
 
+![ollama model installation - codellama](images/ollama-run-codellama.png)
+
 Untuk menguji:
 
 ```
@@ -113,6 +115,8 @@ Overall, this example demonstrates how to write unit tests for asynchronous func
 
 >>> Send a message (/? for help)
 ```
+
+![Menguji codellama](images/ollama-prompt-example-01-python-test-async.png)
 
 2.  Menggunakan OpenRouter
 
