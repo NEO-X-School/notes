@@ -98,7 +98,7 @@ Untuk menguji:
 
 ![Kondisi belum login di Zed](images/zed-sign-in.png)
 
-![Kondisi sudah login di Zed](images/zed-sing-in--1.png)
+![Kondisi sudah login di Zed](images/zed-sign-in--1.png)
 
 ### Memulai Kolaborasi
 
