@@ -93,3 +93,73 @@ Untuk menguji:
 
 
 ## Kolaborasi di Zed 
+
+### Login di Zed 
+
+![Kondisi belum login di Zed](images/zed-sign-in.png)
+
+![Kondisi sudah login di Zed](images/zed-sing-in--1.png)
+
+### Memulai Kolaborasi
+
+Tekan Crtl-Shift-C, Zed akan memunculkan dialog untuk *Connect* di sebelah kiri.
+
+![Dialog untk Connect](images/zed-kolaborasi-00.png)
+
+Klik pada **Connect**, Zed akan menampilkan channel yang ada. Secara default, tidak ada channel yang akan dimunculkan.
+
+![Memunculkan channel](images/zed-kolaborasi-01.png)
+
+### Membuat Channel
+
+Jika diperlukan, anda bisa membuat channel anda sendiri dan kemudian bekerja sama dengan kontributor lain dalam channel yang anda buat tersebut. Jika anda menjadi pembuat channel, maka posisi anda menjadi administrator dari channel tersebut. Channel bisa dibuat dengan mengklik pada tanda **+** di kiri atas:
+
+![Mulai create channel](images/zed-kolaborasi-02.png)
+
+Misal kita akan membuat channel **NEO-X School**, setelah klik tanda **+** dan mengisikan nama channel, akan dimunculkan dialog. Default dari channel adalah tidak public. Jika ingin membuat orang lain bisa mencari channel, buatlah channel menjadi *Public*.
+
+![Hasil pembuatan channel](images/zed-kolaborasi-03.png)
+
+JIka ingin mengatur menjadi Public dan/atau mengatur anggota channel, klik kanan pada nama channel dan kemudian pilih *Manage Members*.
+
+![Hasil pembuatan channel](images/zed-kolaborasi-04.png)
+
+Sebagai admin, anda juga bisa membuat subchannel dengan klik kanan, memilih *New Subchannel* dan kemudian mengisikan. Subchannel ini bisa anda buat juga pada subchannel.
+
+Pada channel yang dibuat, admin bisa meng-*invite* member dengan klik kanan kemudian *Manage Members* dan kemudian memilih pada *Invite Member*:
+
+![Hasil pembuatan channel](images/zed-kolaborasi-04.png)
+
+Isikan nama user (sesuai username di GitHub) yang akan di-*invite*:
+
+![Hasil pembuatan channel](images/zed-kolaborasi-05.png)
+
+User yang di-*invite* akan mendapatkan pemberitahuan dan bisa memilih tanda centang untuk menerima *invitation*:
+
+![Hasil pembuatan channel](images/zed-kolaborasi-06.png)
+
+Jika sudah terkoneksi dalam channel / subchennel, maka bisa dilakukan sharing dengan klik pada **Share** di bagian kanan atas Zed.
+
+![Mulai share proyek](images/zed-kolaborasi-07.png)
+
+*Members* yang berada pada (sub)channel tersebut kemudian akan mendapat pemberitahun dan kemudian bisa menerima dengan klik pada **Open**:
+
+![Member menerima share proyek](images/zed-kolaborasi-08.png)
+
+Setelah member menerima, maka member tersebut mendapatkan tampilan proyek yang di*share* dan kemudian bisa aktif melakukan proses editing seperti halnya seakan-akan proyek tersebut berada pada Zed lokal member tersebut.
+
+![Member mendapatkan tampilan proyek](images/zed-kolaborasi-09.png)
+
+Klik pada **Unshare* jika sudah selesai dengan sharing proyek. *Members* akan mendapatkan pemberitahuan diskonek:
+
+![Member mendapatkan tampilan proyek](images/zed-kolaborasi-10.png)
+
+**Catatan**: setiap member bisa melakukan *sharing project*, tidak hanya admin saja. 
+
+Kita juga bisa melakukan *invitation* kontak:
+
+![Member mendapatkan tampilan proyek](images/zed-kolaborasi-11.png)
+
+Kontak yang kita *invite* akan mendapatkan pemberitahuan dan bisa klik pada tanda centang untuk menerima:
+
+![Member mendapatkan tampilan proyek](images/zed-kolaborasi-12.png)
