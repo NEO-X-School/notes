@@ -153,6 +153,31 @@ Setelah itu, konfigurasikan sebagai berikut:
 
 ![Edit setting Zed untuk AI - 01](images/zed-open-settings-AI-01.png)
 
+Pastikan bahwa **ollama** sudah berjalan di localhost pada port sesuai dengan *setting* di atas. Jika sudah, pada bagian kanan atas dari Zed akan muncul icon untuk **Inline Assist**:
+
+![Zed Inline Assist](images/zed-inline-assist.png)
+
+Klik pada **Inline Assist** tersebut, atau tekan **Ctrl-Enter**. Saat pertama kali di-klik, Zed harus mengaktifkan terlebih dahulu. 
+
+![Zed Inline Assist - Konfigurasi 01](images/zed-inline-assist-01.png)
+
+Piliih **Configure**, pilih **Ollama** kemudian klik pada **Connect**:
+
+![Zed Inline Assist - Konfigurasi 02](images/zed-inline-assist-02.png)
+
+Zed akan terkoneksi ke Ollama dan model sesuai dengan settings.json. Jika terkoneksi, maka akan muncul tampilan berikut:
+
+![Zed Inline Assist - Konfigurasi 03](images/zed-inline-assist-03.png)
+
+Setelah itu, AI Inline Assist bisa digunakan. Sebagai contoh, kita akan membuat *command line mp3 player menggunakan bahasa pemrograman Rust*. Buat proyek baru Rust, *open* di Zed, kemudian Klik pada **Inline Assiste**.
+
+![Zed create new Rust project](images/zed-showcase-playr-00.png)
+
+![Zed open Rust project](images/zed-showcase-playr-01.png)
+
+Buka `src/main.rs` di editor kemudian klik pada *Inline Assistant*:
+
+![Zed open inline assistant - 01](images/zed-showcase-playr-02.png)
 
 
 
