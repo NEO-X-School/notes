@@ -4,7 +4,7 @@
 | -------- | ---------- |
 | Dr. Bambang Purnomosidi D. P. | Penulis utama |
 
-Update tarakhir: **18 April 2026**
+Update tarakhir: **14 Mei 2026**
 
 ## Instalasi Prasyarat
 
@@ -16,7 +16,7 @@ Akses ke https://zed.dev/download, setelah itu pilih sesuai dengan sistem operas
 
 ### Instalasi Ollama
 
-```bash 
+```bash
 $ curl -fsSL https://ollama.com/install.sh | sh
 >>> Cleaning up old version at /usr/local/lib/ollama
 [sudo] password for bpdp: 
@@ -32,29 +32,28 @@ $
 Instalasi akan dilakukan di `/usr/local/lib/ollama` dan `/usr/local/bin/`
 
 ```bash 
-total 6492
-drwxr-xr-x 6 root root    4096 Apr 18 17:28 .
-drwxr-xr-x 3 root root    4096 Apr 18 17:20 ..
-drwxr-xr-x 2 root root    4096 Apr 17 11:14 cuda_v12
-drwxr-xr-x 2 root root    4096 Apr 17 11:03 cuda_v13
-lrwxrwxrwx 1 root root      20 Apr 17 10:54 include -> mlx_cuda_v13/include
-lrwxrwxrwx 1 root root      17 Apr 17 10:54 libggml-base.so -> libggml-base.so.0
-lrwxrwxrwx 1 root root      21 Apr 17 10:54 libggml-base.so.0 -> libggml-base.so.0.0.0
--rwxr-xr-x 1 root root  748152 Apr 17 10:54 libggml-base.so.0.0.0
--rwxr-xr-x 1 root root  873912 Apr 17 10:54 libggml-cpu-alderlake.so
--rwxr-xr-x 1 root root  873912 Apr 17 10:54 libggml-cpu-haswell.so
--rwxr-xr-x 1 root root 1009080 Apr 17 10:54 libggml-cpu-icelake.so
--rwxr-xr-x 1 root root  820728 Apr 17 10:54 libggml-cpu-sandybridge.so
--rwxr-xr-x 1 root root 1009080 Apr 17 10:54 libggml-cpu-skylakex.so
--rwxr-xr-x 1 root root  636536 Apr 17 10:54 libggml-cpu-sse42.so
--rwxr-xr-x 1 root root  632472 Apr 17 10:54 libggml-cpu-x64.so
-drwxr-xr-x 3 root root    4096 Apr 17 11:14 mlx_cuda_v13
-drwxr-xr-x 2 root root    4096 Apr 17 11:01 vulkan
+$ ls -la /usr/local/lib/ollama/
+total 6488
+drwxr-xr-x 5 root root    4096 May 13 16:31 .
+drwxr-xr-x 3 root root    4096 May 13 16:19 ..
+drwxr-xr-x 2 root root    4096 May 13 06:09 cuda_v12
+drwxr-xr-x 2 root root    4096 May 13 05:48 cuda_v13
+lrwxrwxrwx 1 root root      17 May 13 05:32 libggml-base.so -> libggml-base.so.0
+lrwxrwxrwx 1 root root      21 May 13 05:32 libggml-base.so.0 -> libggml-base.so.0.0.0
+-rwxr-xr-x 1 root root  748152 May 13 05:32 libggml-base.so.0.0.0
+-rwxr-xr-x 1 root root  873912 May 13 05:32 libggml-cpu-alderlake.so
+-rwxr-xr-x 1 root root  873912 May 13 05:32 libggml-cpu-haswell.so
+-rwxr-xr-x 1 root root 1009080 May 13 05:32 libggml-cpu-icelake.so
+-rwxr-xr-x 1 root root  820728 May 13 05:32 libggml-cpu-sandybridge.so
+-rwxr-xr-x 1 root root 1009080 May 13 05:32 libggml-cpu-skylakex.so
+-rwxr-xr-x 1 root root  636536 May 13 05:32 libggml-cpu-sse42.so
+-rwxr-xr-x 1 root root  632472 May 13 05:32 libggml-cpu-x64.so
+drwxr-xr-x 2 root root    4096 May 13 05:36 vulkan
 $ ls -la /usr/local/bin/
-total 42384
-drwxr-xr-x  2 root root     4096 Apr 18 17:21 .
+total 43808
+drwxr-xr-x  2 root root     4096 May 13 16:19 .
 drwxr-xr-x 11 root root     4096 Feb 28 21:01 ..
--rwxr-xr-x  1 root root 43386024 Apr 17 10:38 ollama
+-rwxr-xr-x  1 root root 44845312 May 13 05:31 ollama
 $ 
 ```
 
@@ -66,7 +65,20 @@ Untuk aktivitas *coding*, pada dasarnya ada beberapa yang bisa digunakan.
 
 1. Instalasi lokal 
 
-Cara ini digunakan jika kita mempunyai *resources* yang mencukupi. 
+Cara ini digunakan jika kita mempunyai *resources* yang mencukupi. Sila mencari model yang sesuai dengan *resources* lokal yang dimiliki di [Ollama supported models](https://ollama.com/search).
+
+**Catatan**: saat akan menggunakan model, pastikan bahwa jumlah parameter (sering ditulis dengan b - singkatan dari *billion* / milyar - menandakan jumlah parameter dari model tersebut). Jumlah model dan presisi menentukan kapabilitas dan menuntut VRAM yang sesuai. Sebagai gambaran, berikut adalah patokan dari VRAM yang diperlukan untuk jumlah parameter dan presisi:
+
+| Ukuran Model | Presisi        | VRAM (dalam GB) |
+| :----------: | :------------: | :-------------: |
+| 7b-8b        | 16 bit (FP16)  | 14-16           |
+| 7b-8b        | 4 bit (Q4_K_M) | 5-6             |
+| 13b-14b      | 16 bit (FP16)  | 26-28           |
+| 13b-14b      | 4 bit (Q4_K_M) | 9-10            |
+| 30b-33b      | 4 bit (Q4_K_M) | 20-28           |
+| 70b          | 4 bit (Q4_K_M) | 40-48           |
+
+Untuk awal, kita akan menggunakan model [codellama](https://ollama.com/library/codellama).
 
 ```bash 
 $ ollama run codellama
@@ -93,21 +105,20 @@ Setelah proses di atas, model `codellama` sudah berada di lokal komputer kita, p
 
 ```bash
 $ ollama serve
-time=2026-04-18T17:31:55.045+07:00 level=INFO source=routes.go:1752 msg="server config" env="map[CUDA_VISIBLE_DEVICES: GGML_VK_VISIBLE_DEVICES: GPU_DEVICE_ORDINAL: HIP_VISIBLE_DEVICES: HSA_OVERRIDE_GFX_VERSION: HTTPS_PROXY: HTTP_PROXY: NO_PROXY: OLLAMA_CONTEXT_LENGTH:0 OLLAMA_DEBUG:INFO OLLAMA_DEBUG_LOG_REQUESTS:false OLLAMA_EDITOR: OLLAMA_FLASH_ATTENTION:false OLLAMA_GPU_OVERHEAD:0 OLLAMA_HOST:http://127.0.0.1:11434 OLLAMA_KEEP_ALIVE:5m0s OLLAMA_KV_CACHE_TYPE: OLLAMA_LLM_LIBRARY: OLLAMA_LOAD_TIMEOUT:5m0s OLLAMA_MAX_LOADED_MODELS:0 OLLAMA_MAX_QUEUE:512 OLLAMA_MODELS:/home/bpdp/.ollama/models OLLAMA_MULTIUSER_CACHE:false OLLAMA_NEW_ENGINE:false OLLAMA_NOHISTORY:false OLLAMA_NOPRUNE:false OLLAMA_NO_CLOUD:false OLLAMA_NUM_PARALLEL:1 OLLAMA_ORIGINS:[http://localhost https://localhost http://localhost:* https://localhost:* http://127.0.0.1 https://127.0.0.1 http://127.0.0.1:* https://127.0.0.1:* http://0.0.0.0 https://0.0.0.0 http://0.0.0.0:* https://0.0.0.0:* app://* file://* tauri://* vscode-webview://* vscode-file://*] OLLAMA_REMOTES:[ollama.com] OLLAMA_SCHED_SPREAD:false OLLAMA_VULKAN:false ROCR_VISIBLE_DEVICES: http_proxy: https_proxy: no_proxy:]"
-time=2026-04-18T17:31:55.045+07:00 level=INFO source=routes.go:1754 msg="Ollama cloud disabled: false"
-time=2026-04-18T17:31:55.046+07:00 level=INFO source=images.go:517 msg="total blobs: 6"
-time=2026-04-18T17:31:55.046+07:00 level=INFO source=images.go:524 msg="total unused blobs removed: 0"
-time=2026-04-18T17:31:55.046+07:00 level=INFO source=routes.go:1810 msg="Listening on 127.0.0.1:11434 (version 0.21.0)"
-time=2026-04-18T17:31:55.046+07:00 level=INFO source=runner.go:67 msg="discovering available GPUs..."
-time=2026-04-18T17:31:55.047+07:00 level=INFO source=server.go:444 msg="starting runner" cmd="/usr/local/bin/ollama runner --ollama-engine --port 40633"
-time=2026-04-18T17:31:55.277+07:00 level=INFO source=server.go:444 msg="starting runner" cmd="/usr/local/bin/ollama runner --ollama-engine --port 41357"
-time=2026-04-18T17:31:55.494+07:00 level=INFO source=runner.go:106 msg="experimental Vulkan support disabled.  To enable, set OLLAMA_VULKAN=1"
-time=2026-04-18T17:31:55.494+07:00 level=INFO source=server.go:444 msg="starting runner" cmd="/usr/local/bin/ollama runner --ollama-engine --port 36945"
-time=2026-04-18T17:31:55.494+07:00 level=INFO source=server.go:444 msg="starting runner" cmd="/usr/local/bin/ollama runner --ollama-engine --port 44305"
-time=2026-04-18T17:31:55.717+07:00 level=INFO source=types.go:42 msg="inference compute" id=GPU-fc21007c-4634-492e-c993-6a12b208dce2 filter_id="" library=CUDA compute=8.6 name=CUDA0 description="NVIDIA GeForce RTX 2050" libdirs=ollama,cuda_v13 driver=13.2 pci_id=0000:01:00.0 type=discrete total="4.0 GiB" available="3.7 GiB"
-time=2026-04-18T17:31:55.717+07:00 level=INFO source=routes.go:1860 msg="vram-based default context" total_vram="4.0 GiB" default_num_ctx=4096
-[GIN] 2026/04/18 - 17:32:01 | 200 |     131.576µs |       127.0.0.1 | HEAD     "/"
-[GIN] 2026/04/18 - 17:32:01 | 200 |    3.264581ms |       127.0.0.1 | GET      "/api/tags"
+time=2026-05-13T17:17:43.491+07:00 level=INFO source=routes.go:1802 msg="server config" env="map[CUDA_VISIBLE_DEVICES: GGML_VK_VISIBLE_DEVICES: GPU_DEVICE_ORDINAL: HIP_VISIBLE_DEVICES: HSA_OVERRIDE_GFX_VERSION: HTTPS_PROXY: HTTP_PROXY: NO_PROXY: OLLAMA_CONTEXT_LENGTH:0 OLLAMA_DEBUG:INFO OLLAMA_DEBUG_LOG_REQUESTS:false OLLAMA_EDITOR: OLLAMA_FLASH_ATTENTION:false OLLAMA_GPU_OVERHEAD:0 OLLAMA_HOST:http://127.0.0.1:11434 OLLAMA_KEEP_ALIVE:5m0s OLLAMA_KV_CACHE_TYPE: OLLAMA_LLM_LIBRARY: OLLAMA_LOAD_TIMEOUT:5m0s OLLAMA_MAX_LOADED_MODELS:0 OLLAMA_MAX_QUEUE:512 OLLAMA_MAX_TRANSFER_STREAMS:4 OLLAMA_MODELS:/home/bpdp/.ollama/models OLLAMA_MULTIUSER_CACHE:false OLLAMA_NEW_ENGINE:false OLLAMA_NOHISTORY:false OLLAMA_NOPRUNE:false OLLAMA_NO_CLOUD:false OLLAMA_NUM_PARALLEL:1 OLLAMA_ORIGINS:[http://localhost https://localhost http://localhost:* https://localhost:* http://127.0.0.1 https://127.0.0.1 http://127.0.0.1:* https://127.0.0.1:* http://0.0.0.0 https://0.0.0.0 http://0.0.0.0:* https://0.0.0.0:* app://* file://* tauri://* vscode-webview://* vscode-file://*] OLLAMA_REMOTES:[ollama.com] OLLAMA_SCHED_SPREAD:false OLLAMA_VULKAN:false ROCR_VISIBLE_DEVICES: http_proxy: https_proxy: no_proxy:]"
+time=2026-05-13T17:17:43.492+07:00 level=INFO source=routes.go:1804 msg="Ollama cloud disabled: false"
+time=2026-05-13T17:17:43.492+07:00 level=INFO source=images.go:517 msg="total blobs: 11"
+time=2026-05-13T17:17:43.492+07:00 level=INFO source=images.go:524 msg="total unused blobs removed: 0"
+time=2026-05-13T17:17:43.492+07:00 level=INFO source=routes.go:1864 msg="Listening on 127.0.0.1:11434 (version 0.23.3)"
+time=2026-05-13T17:17:43.493+07:00 level=INFO source=runner.go:67 msg="discovering available GPUs..."
+time=2026-05-13T17:17:43.493+07:00 level=INFO source=server.go:433 msg="starting runner" cmd="/usr/local/bin/ollama runner --ollama-engine --port 33645"
+time=2026-05-13T17:17:43.665+07:00 level=INFO source=server.go:433 msg="starting runner" cmd="/usr/local/bin/ollama runner --ollama-engine --port 43191"
+time=2026-05-13T17:17:43.893+07:00 level=INFO source=runner.go:106 msg="experimental Vulkan support disabled.  To enable, set OLLAMA_VULKAN=1"
+time=2026-05-13T17:17:43.893+07:00 level=INFO source=server.go:433 msg="starting runner" cmd="/usr/local/bin/ollama runner --ollama-engine --port 38191"
+time=2026-05-13T17:17:43.893+07:00 level=INFO source=server.go:433 msg="starting runner" cmd="/usr/local/bin/ollama runner --ollama-engine --port 37783"
+time=2026-05-13T17:17:43.951+07:00 level=INFO source=model_recommendations.go:177 msg="model recommendations cache sleep scheduled" wait=3h59m27.140918206s consecutive_failures=0
+time=2026-05-13T17:17:44.123+07:00 level=INFO source=types.go:42 msg="inference compute" id=GPU-fc21007c-4634-492e-c993-6a12b208dce2 filter_id="" library=CUDA compute=8.6 name=CUDA0 description="NVIDIA GeForce RTX 2050" libdirs=ollama,cuda_v13 driver=13.2 pci_id=0000:01:00.0 type=discrete total="4.0 GiB" available="3.7 GiB"
+time=2026-05-13T17:17:44.124+07:00 level=INFO source=routes.go:1914 msg="vram-based default context" total_vram="4.0 GiB" default_num_ctx=4096
 ```
 
 Pada posisi tersebut, model `codellama` sudan terinstall di lokal komputer:
@@ -115,11 +126,28 @@ Pada posisi tersebut, model `codellama` sudan terinstall di lokal komputer:
 ```bash
 $ ollama list
 NAME                ID              SIZE      MODIFIED   
-codellama:latest    8fdf8f752f6e    3.8 GB    8 days ago  
+codellama:latest    8fdf8f752f6e    3.8 GB    4 weeks ago  
 $
 ```
 
-Berikut adalah penambahan satu model lagi yaitu [gemma3:4b](https://ollama.com/library/gemma3). Tentu saja model bisa ditambah sekehendak hati asal mempunyai *resources* yang mencukupi. Jika ingin menambah lagi, bisa mencari model yang sesuai di [Ollama supported models](https://ollama.com/search).
+Suatu saat, jika ingin mengupdate model, gunakan perintah *ollama pull <nama-model>*. Jika terdapat update, maka update akan diambil.
+
+```bash
+$ ollama pull codellama
+pulling manifest 
+pulling 3a43f93b78ec: 100% ▕█████████████████████████████████████████████████████████████████████████████████████████████████████████████▏ 3.8 GB                         
+pulling 8c17c2ebb0ea: 100% ▕█████████████████████████████████████████████████████████████████████████████████████████████████████████████▏ 7.0 KB                         
+pulling 590d74a5569b: 100% ▕█████████████████████████████████████████████████████████████████████████████████████████████████████████████▏ 4.8 KB                         
+pulling 2e0493f67d0c: 100% ▕█████████████████████████████████████████████████████████████████████████████████████████████████████████████▏   59 B                         
+pulling 7f6a57943a88: 100% ▕█████████████████████████████████████████████████████████████████████████████████████████████████████████████▏  120 B                         
+pulling 316526ac7323: 100% ▕█████████████████████████████████████████████████████████████████████████████████████████████████████████████▏  529 B                         
+verifying sha256 digest 
+writing manifest 
+success
+$
+```
+
+Berikut adalah penambahan satu model lagi yaitu [gemma3:4b](https://ollama.com/library/gemma3). 
 
 ```bash
 $ ollama pull gemma3:4b
@@ -140,12 +168,30 @@ $
 ```bash
 $ ollama list
 NAME                ID              SIZE      MODIFIED      
-gemma3:4b           a2af6cc3eb7f    3.3 GB    2 minutes ago    
-codellama:latest    8fdf8f752f6e    3.8 GB    8 days ago
+gemma3:4b           a2af6cc3eb7f    3.3 GB    2 seconds ago    
+codellama:latest    8fdf8f752f6e    3.8 GB    3 minutes ago
 $
 ```
 
-Setelah itu, konfigurasi Zed. Buka menu Zed - Open Settings, pilih AI di sisi sebelah kiri. Setelah itu klik pada **Edit in settings.json**:
+Zed secara default akan mengaktifkan AI. Jika akan menonaktifkan atau mengaktifkan AI, gunakan menu **Open Settings** - **AI** - **Disable AI**. Kita akan menggunakan AI, jadi pastikan bahwa **DIsable AI** dalam kondisi non-aktif. Pada semua kondisi (masuk Zed tanpa ada proyek terbuka, sudah ada proyek yang terbuka), secara default AI aktif dan window **Zed Agent** bisa dibuka menggunakan kombinasi tombol **Ctrl-B**. 
+
+Untuk menggunakan AI, pilihan yang bisa digunakan banyak sekali. Secara default, Zed akan mengaktifkan **Zed Agent** (dimunculkan dengan menekan **Ctrl-B**) dan bagian kiri atas klik pada **Zed Agent** - **Add More Agents** jika ingin menggunakan agent lain (misalnya Claude Agent, GitHub Copilit, dan lain-lain). Zed akan menampilkan berbagai Agent yang mendukung protokol ACP (*Agent Communication Protocol), install sesuai dengan keperluan. Pada materi ini, kita akan menggunakan **Zed Agent**.
+
+Sebelum menggunakan **Zed Agent**, model yang akan digunakan harus didefinisikan. Kita akan menggunakan Ollama dengan model *codellama* dan *gemma3:4b*. Pastikan **ollama** dan model yang akan kita gunakan sudah berjalan (jalankan pada dua shell):
+
+```bash
+$ ollama serve
+```
+
+Pada shell berikutnya:
+
+```bash 
+$ ollama run gemma3-4b
+```
+
+**Catatan**: jika sudah berjalan, kedua perintah di atas tidak diperlukan lagi.
+
+Setelah itu, konfigurasi Zed. Buka menu Zed - **Open Settings**, pilih **AI** di sisi sebelah kiri. Setelah itu klik pada **Edit in settings.json**:
 
 ![Edit setting Zed untuk AI - 00](images/zed-open-settings-AI-00.png)
 
@@ -153,11 +199,28 @@ Setelah itu, konfigurasikan sebagai berikut:
 
 ![Edit setting Zed untuk AI - 01](images/zed-open-settings-AI-01.png)
 
-Pastikan bahwa **ollama** sudah berjalan di localhost pada port sesuai dengan *setting* di atas. Jika sudah, pada bagian kanan atas dari Zed akan muncul icon untuk **Inline Assist**:
+**Catatan**: pada sesi-sesi berikutnya, jangan lupa untuk menghidupkan *ollama* dan model yang digunakan sesuai dengan cara di atas **sebelum memulai Zed**. Jika ollama dan model belum berjalan, maka Zed Agent tidak akan bisa digunakan meski window bisa dimunculkan menggunakan Ctrl-B. 
+
+
+Jika model belum aktif atau ingin mengubah model yang digunakan, bisa diaktifkan menggunakan **Change Model** di bagian kanan bawah window Zed Agent atau bisa juga dengan menekan **Ctrl-Alt-C**. 
+
+2.  Menggunakan Fasilitas dari *LLM Providers*
+
+Mode ini diperlukan jika kita ingin menggunakan AI dan reources di komputer kita tidak memenuhi syarat (RAM dan VRAM). Untuk menggunakan fasilitas ini, dari window Zed Agent, aktifkan *Settings* dengan memilih pada **Change Model** - **Configure** di bagian kanan bawah atau menekan **Ctrl-Alt-C**. Dengan mode ini, Zed Agent memungkinkan menggunakan banyak model lainnya (misal OpenRouter, Anthropic, Amazon Bedrock, DeepSeek, Google AI, dan masih banyak lagi). Perlu diketahui bahwa untuk menggunakan layanan-layanan tersebut, diperlukan API key atau token dari berbagai penyedia model AI. API key maupun token ini ada yang bisa diperoleh secara gratis maupun berbiaya. Untuk mengetahui layanan apa saja yang bisa digunakan dan biaya yang diperlukan, sila mencari informasi ke berbagai penyedia model tersebut. Berikut adalah tampilannya, sila mengisikan sesuai dengan permintaan dialog LLM Providers yang dipilih:
+
+![Zed Agent - Settings - LLL Providers](images/zed-agent-llm-providers.png)
+
+## AI Assistant untuk Vibe Coding di Zed 
+
+Window Zed Agent bisa digunakan untuk menanyakan hal-hal apa saja yang terkait dengan *coding* maupun hal terkait lainnya setelah model diaktifkan. Berikut adalah contoh pertanyaan dan jawaban:
+
+![Zed Agent menjawab pertanyaan](images/zed-agent-answer.png)
+
+Zed Agent juga bisa digunakan pada level file source code saat source code aktif di editor. Saat sudah berada di editor, pada bagian kanan atas dari Zed akan muncul icon untuk **Inline Assist**:
 
 ![Zed Inline Assist](images/zed-inline-assist.png)
 
-Klik pada **Inline Assist** tersebut, atau tekan **Ctrl-Enter**. Saat pertama kali di-klik, Zed harus mengaktifkan terlebih dahulu. 
+Klik pada **Inline Assist** tersebut, atau tekan **Ctrl-Enter**. Saat pertama kali di-klik dan Zed Agent dalam kondisi belum aktif, Zed Agent harus mengaktifkan model terlebih dahulu (**catatan**: hal ini tidak diperlukan jika model sudah diaktifkan):
 
 ![Zed Inline Assist - Konfigurasi 01](images/zed-inline-assist-01.png)
 
@@ -169,26 +232,7 @@ Zed akan terkoneksi ke Ollama dan model sesuai dengan settings.json. Jika terkon
 
 ![Zed Inline Assist - Konfigurasi 03](images/zed-inline-assist-03.png)
 
-Setelah itu, AI Inline Assist bisa digunakan. Sebagai contoh, kita akan membuat *command line mp3 player menggunakan bahasa pemrograman Rust*. Buat proyek baru Rust, *open* di Zed, kemudian Klik pada **Inline Assiste**.
-
-![Zed create new Rust project](images/zed-showcase-playr-00.png)
-
-![Zed open Rust project](images/zed-showcase-playr-01.png)
-
-Buka `src/main.rs` di editor kemudian klik pada *Inline Assistant*:
-
-![Zed open inline assistant - 01](images/zed-showcase-playr-02.png)
-
-
-
-
-2.  Menggunakan OpenRouter
-
-
-
-## AI Assistant untuk Vibe Coding di Zed 
-
-
+Setelah itu, AI Inline Assist bisa digunakan. 
 
 ## Kolaborasi di Zed 
 
