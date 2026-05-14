@@ -6,7 +6,7 @@ Repo ini berisi catatan-catatan penggunaan berbagai peranti pengembangan yang di
 
 1.  [`uv` - *Env* dan *Package Manager* untuk Python](uv/). [Upstream URL for uv](https://docs.astral.sh/uv).
 2.  [Petunjuk Awal Penggunaan Git dan GItHub](petunjuk-git-github/). 
-3.  [Vibe Coding dan Kolaborasi di Zed](zed-vibe-coding-kolaborasi/).  
+3.  [Agentic Engineering: Menggunakan AI-Assisted Zed untuk Membangun Software yang Lebih Baik](zed-agentic-engineering/).  
 
 ![Lisensi - CC BY-SA International 4.0](images/cc-by-sa--small.png)  
 
