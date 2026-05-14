@@ -1,10 +1,17 @@
-# Menggunakan Zed untuk Vibe Coding dan Kolaborasi
+# Agentic Engineering: Menggunakan AI-Assisted Zed untuk Membangun Software yang Lebih Baik 
 
 | Penulis | Peran |
 | -------- | ---------- |
 | Dr. Bambang Purnomosidi D. P. | Penulis utama |
 
-Update tarakhir: **14 Mei 2026**
+Update tarakhir: **15 Mei 2026**
+
+Istilah [Agentic Engineering](https://zed.dev/agentic-engineering) dimunculkan oleh salah satu *founder* dari Zed, Nathan Sobo di [blog Zed](https://zed.dev/blog/software-craftsmanship-in-the-era-of-vibes). Tulisan ini kurang lebih berusaha untuk membuat *Agentic Engineering* menjadi lebih *practical* berdasarkan pengalaman dan referensi yang ada. 
+
+*Agentic Engineering* didefinisikan sebagai proses perekayasaan untuk menggabungkan keahlian manusia dengan AI untuk membangun software yang lebih baik. Penulis sendiri pada dasarnya setuju dengan *agentic engineering* yang berada di tengah antara *AI skeptic* dan *full blown AI yang mengatakan AI akan menggantikan proses pembuatan software*. AI sebagai *tool* memang tidak bisa dihindari, tetapi juga tidak bisa "dilepaskan" 100%. Ada 2 hal utama yang membuat proses *agentic engineering* ini bisa berjalan dengan baik:
+1. Tersedianya fasilitas untuk mengintegrasikan AI ke dalam IDE dengan manusia sebagai *first class citizen*.
+2. Tersedianya fasilitas untuk kolaborasi antara manusia di dalam IDE tersebut.
+Dua hal tersebut yang akan dibahas secara khusus dalam catatan ini.
 
 ## Instalasi Prasyarat
 
@@ -335,3 +342,11 @@ Kita juga bisa melakukan *invitation* kontak:
 Kontak yang kita *invite* akan mendapatkan pemberitahuan dan bisa klik pada tanda centang untuk menerima:
 
 ![Member mendapatkan tampilan proyek](images/zed-kolaborasi-12.png)
+
+## Referensi 
+
+1.  [Dokumentasi Zed](https://zed.dev/docs/)
+2.  [The Complete Guide to Ollama: Run Large Language Models Locally](https://dev.to/ajitkumar/the-complete-guide-to-ollama-run-large-language-models-locally-2mge)
+3.  [Dokumentasi Ollama](https://docs.ollama.com/)
+4.  [Llama.cpp vs Ollama: Choosing the Best Local LLM Tool in 2026](https://www.openxcell.com/blog/llama-cpp-vs-ollama/)
+5.  [Setting up a lightweight vibe-coding lab with Zed and Ollama, step-by-step](https://medium.com/h7w/setting-up-a-lightweight-vibe-coding-lab-with-zed-and-ollama-step-by-step-fe7ea6c99fb9)
