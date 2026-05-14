@@ -9,8 +9,10 @@ Update tarakhir: **15 Mei 2026**
 Istilah [Agentic Engineering](https://zed.dev/agentic-engineering) dimunculkan oleh salah satu *founder* dari Zed, Nathan Sobo di [blog Zed](https://zed.dev/blog/software-craftsmanship-in-the-era-of-vibes). Tulisan ini kurang lebih berusaha untuk membuat *Agentic Engineering* menjadi lebih *practical* berdasarkan pengalaman dan referensi yang ada. 
 
 *Agentic Engineering* didefinisikan sebagai proses perekayasaan untuk menggabungkan keahlian manusia dengan AI untuk membangun software yang lebih baik. Penulis sendiri pada dasarnya setuju dengan *agentic engineering* yang berada di tengah antara *AI skeptic* dan *full blown AI yang mengatakan AI akan menggantikan proses pembuatan software*. AI sebagai *tool* memang tidak bisa dihindari, tetapi juga tidak bisa "dilepaskan" 100%. Ada 2 hal utama yang membuat proses *agentic engineering* ini bisa berjalan dengan baik:
+
 1. Tersedianya fasilitas untuk mengintegrasikan AI ke dalam IDE dengan manusia sebagai *first class citizen*.
 2. Tersedianya fasilitas untuk kolaborasi antara manusia di dalam IDE tersebut.
+
 Dua hal tersebut yang akan dibahas secara khusus dalam catatan ini.
 
 ## Instalasi Prasyarat
