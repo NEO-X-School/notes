@@ -249,7 +249,7 @@ Zed menyediakan koneksi ke MCP server. MCP Server di Zed Editor mengimplementasi
 
 Untuk mengaktifkan MCP server, pada window Zed Agent, pilih **Change Model** di kanan bawah atau tekan **Ctrl-Alt-/** dan kemudian pilih **Configure** atau **Ctrl-Alt-C**. Pilih **Model Context Protocol (MCP) Servers** - **Add Server** - **Install from Extensions**. Untuk contoh, kita akan menggunakan MCP server dari [Context7](https://context7.com/) yang memungkinkan menanyakan menggunakan bahasa alami untuk berbagai kasus pemrograman yang melibatkan Next.js, Tailwind CSS, dan lain-lain. 
 
-**Catatan:** anda bisa memilih MCP server yang disediakan dalam bentuk Zed extension melalui menu yang sama. 
+**Catatan:** kita bisa memilih MCP server yang disediakan dalam bentuk Zed extension melalui menu yang sama. 
 
 ![Zed MCP Server Extensions](images/zed-mcp-server-01.png)
 
@@ -293,7 +293,7 @@ Klik pada **Connect**, Zed akan menampilkan channel yang ada. Secara default, ti
 
 ### Membuat Channel
 
-Jika diperlukan, anda bisa membuat channel anda sendiri dan kemudian bekerja sama dengan kontributor lain dalam channel yang anda buat tersebut. Jika anda menjadi pembuat channel, maka posisi anda menjadi administrator dari channel tersebut. Channel bisa dibuat dengan mengklik pada tanda **+** di kiri atas:
+Jika diperlukan, kita bisa membuat channel sendiri dan kemudian bekerja sama dengan kontributor lain dalam channel yang telah dibuat tersebut. Jika kita menjadi pembuat channel, maka posisi kita menjadi administrator dari channel tersebut. Channel bisa dibuat dengan mengklik pada tanda **+** di kiri atas:
 
 ![Mulai create channel](images/zed-kolaborasi-02.png)
 
@@ -305,9 +305,7 @@ JIka ingin mengatur menjadi Public dan/atau mengatur anggota channel, klik kanan
 
 ![Hasil pembuatan channel](images/zed-kolaborasi-04.png)
 
-Sebagai admin, anda juga bisa membuat subchannel dengan klik kanan, memilih *New Subchannel* dan kemudian mengisikan. Subchannel ini bisa anda buat juga pada subchannel.
-
-Pada channel yang dibuat, admin bisa meng-*invite* member dengan klik kanan kemudian *Manage Members* dan kemudian memilih pada *Invite Member*:
+Sebagai admin, kita juga bisa membuat subchannel dengan klik kanan, memilih *New Subchannel* dan kemudian mengisikan. Subchannel ini bisa dibuat juga pada subchannel. Pada channel yang dibuat, admin bisa meng-*invite* member dengan klik kanan kemudian *Manage Members* dan kemudian memilih pada *Invite Member*:
 
 ![Hasil pembuatan channel](images/zed-kolaborasi-04.png)
 
