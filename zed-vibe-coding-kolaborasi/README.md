@@ -175,7 +175,7 @@ $
 
 Zed secara default akan mengaktifkan AI. Jika akan menonaktifkan atau mengaktifkan AI, gunakan menu **Open Settings** - **AI** - **Disable AI**. Kita akan menggunakan AI, jadi pastikan bahwa **DIsable AI** dalam kondisi non-aktif. Pada semua kondisi (masuk Zed tanpa ada proyek terbuka, sudah ada proyek yang terbuka), secara default AI aktif dan window **Zed Agent** bisa dibuka menggunakan kombinasi tombol **Ctrl-B**. 
 
-Untuk menggunakan AI, pilihan yang bisa digunakan banyak sekali. Secara default, Zed akan mengaktifkan **Zed Agent** (dimunculkan dengan menekan **Ctrl-B**) dan bagian kiri atas klik pada **Zed Agent** - **Add More Agents** jika ingin menggunakan agent lain (misalnya Claude Agent, GitHub Copilit, dan lain-lain). Zed akan menampilkan berbagai Agent yang mendukung protokol ACP (*Agent Communication Protocol), install sesuai dengan keperluan. Pada materi ini, kita akan menggunakan **Zed Agent**.
+Untuk menggunakan AI, pilihan yang bisa digunakan banyak sekali. Secara default, Zed akan mengaktifkan **Zed Agent** (dimunculkan dengan menekan **Ctrl-B**) dan bagian kiri atas klik pada **Zed Agent** - **Add More Agents** jika ingin menggunakan agent lain (misalnya Claude Agent, GitHub Copilit, dan lain-lain). Zed akan menampilkan berbagai Agent yang mendukung protokol ACP (*Agent Communication Protocol*), install sesuai dengan keperluan. Pada materi ini, kita akan menggunakan **Zed Agent**.
 
 Sebelum menggunakan **Zed Agent**, model yang akan digunakan harus didefinisikan. Kita akan menggunakan Ollama dengan model *codellama* dan *gemma3:4b*. Pastikan **ollama** dan model yang akan kita gunakan sudah berjalan (jalankan pada dua shell):
 
@@ -233,6 +233,36 @@ Zed akan terkoneksi ke Ollama dan model sesuai dengan settings.json. Jika terkon
 ![Zed Inline Assist - Konfigurasi 03](images/zed-inline-assist-03.png)
 
 Setelah itu, AI Inline Assist bisa digunakan. 
+
+## MCP Server dan Zed
+
+Zed menyediakan koneksi ke MCP server. MCP Server di Zed Editor mengimplementasikan Model Context Protocol (MCP) untuk menghubungkan asisten AI di Zed dengan data, peranti, dan sistem eksternal. Kegunaan fasilitas ini adalah untuk memungkinkan asisten AI Zed "berkomunikasi" dengan aplikasi luar—seperti database, terminal, atau API—untuk mengambil konteks atau menjalankan aksi, menjadi asisten coding / programming yang lebih cerdas dan fungsional.
+
+Untuk mengaktifkan MCP server, pada window Zed Agent, pilih **Change Model** di kanan bawah atau tekan **Ctrl-Alt-/** dan kemudian pilih **Configure** atau **Ctrl-Alt-C**. Pilih **Model Context Protocol (MCP) Servers** - **Add Server** - **Install from Extensions**. Untuk contoh, kita akan menggunakan MCP server dari [Context7](https://context7.com/) yang memungkinkan menanyakan menggunakan bahasa alami untuk berbagai kasus pemrograman yang melibatkan Next.js, Tailwind CSS, dan lain-lain. 
+
+**Catatan:** anda bisa memilih MCP server yang disediakan dalam bentuk Zed extension melalui menu yang sama. 
+
+![Zed MCP Server Extensions](images/zed-mcp-server-01.png)
+
+Install Context7 MCP Server dengan klik pada ikon dan text **Install** di sebelah kanan. Context7 menyediakan akses pemanggilan API gratis sampai 1000 pemanggilan. Untuk mendapatkan akses ini, sila mendaftar pada web Context7 dan kemudian [sign-in](https://context7.com/sign-in). Setelah pendaftaran selesai, masuk ke [dashboard](https://context7.com/dashboard) kemudian klik pada **Create API Key**. Isikan nama (bebas):
+
+![Context7 Create API Key - 01](images/context7-create-api-key-01.png)
+
+Setelah itu, API key akan dihasilkan:
+
+![Context7 Create API Key - 02](images/context7-create-api-key-02.png)
+
+Simpan API key tersebut di tempat aman dan kemudian isikan API key tersebut pada dialog di Zed yang muncul setelah instalasi Context7 MCP Server selesai:
+
+![Zed Configure MCP Server](images/zed-mcp-server-02.png)
+
+Untuk menyimpan: **Ctrl-Enter** atau klik pada **Configure Server**. Selanjutnya Zed akan terkoneksi ke Context7 MCP server:
+
+![Zed terkoneksi ke Context7 MCP Server](images/zed-mcp-server-03.png)
+
+Untuk contoh penggunaan, berikan pertanyaan di Zed Agent dan diakhiri dengan **use context7**:
+
+![Zed Agent menjawab pertanyaan menggunakan Context7 MCP Server](images/zed-mcp-server-04.png)
 
 ## Kolaborasi di Zed 
 
