@@ -331,7 +331,7 @@ Setelah member menerima, maka member tersebut mendapatkan tampilan proyek yang d
 
 ![Member mendapatkan tampilan proyek](images/zed-kolaborasi-09.png)
 
-Klik pada **Unshare* jika sudah selesai dengan sharing proyek. *Members* akan mendapatkan pemberitahuan diskonek:
+Klik pada **Unshare** jika sudah selesai dengan sharing proyek. *Members* akan mendapatkan pemberitahuan diskonek:
 
 ![Member mendapatkan tampilan proyek](images/zed-kolaborasi-10.png)
 
