@@ -42,28 +42,53 @@ Instalasi akan dilakukan di `/usr/local/lib/ollama` dan `/usr/local/bin/`
 
 ```bash 
 $ ls -la /usr/local/lib/ollama/
-total 6488
-drwxr-xr-x 5 root root    4096 May 13 16:31 .
-drwxr-xr-x 3 root root    4096 May 13 16:19 ..
-drwxr-xr-x 2 root root    4096 May 13 06:09 cuda_v12
-drwxr-xr-x 2 root root    4096 May 13 05:48 cuda_v13
-lrwxrwxrwx 1 root root      17 May 13 05:32 libggml-base.so -> libggml-base.so.0
-lrwxrwxrwx 1 root root      21 May 13 05:32 libggml-base.so.0 -> libggml-base.so.0.0.0
--rwxr-xr-x 1 root root  748152 May 13 05:32 libggml-base.so.0.0.0
--rwxr-xr-x 1 root root  873912 May 13 05:32 libggml-cpu-alderlake.so
--rwxr-xr-x 1 root root  873912 May 13 05:32 libggml-cpu-haswell.so
--rwxr-xr-x 1 root root 1009080 May 13 05:32 libggml-cpu-icelake.so
--rwxr-xr-x 1 root root  820728 May 13 05:32 libggml-cpu-sandybridge.so
--rwxr-xr-x 1 root root 1009080 May 13 05:32 libggml-cpu-skylakex.so
--rwxr-xr-x 1 root root  636536 May 13 05:32 libggml-cpu-sse42.so
--rwxr-xr-x 1 root root  632472 May 13 05:32 libggml-cpu-x64.so
-drwxr-xr-x 2 root root    4096 May 13 05:36 vulkan
+total 27192
+drwxr-xr-x 5 root root    4096 Jun  7 16:08 .
+drwxr-xr-x 3 root root    4096 Jun  7 16:03 ..
+drwxr-xr-x 2 root root    4096 Jun  5 13:05 cuda_v12
+drwxr-xr-x 2 root root    4096 Jun  4 22:34 cuda_v13
+lrwxrwxrwx 1 root root      17 Jun  5 12:56 libggml-base.so -> libggml-base.so.0
+lrwxrwxrwx 1 root root      22 Jun  5 12:56 libggml-base.so.0 -> libggml-base.so.0.13.1
+-rwxr-xr-x 1 root root  797248 Jun  5 12:56 libggml-base.so.0.13.1
+-rw-r--r-- 1 root root 1030376 Jun  5 12:55 libggml-cpu-alderlake.so
+-rw-r--r-- 1 root root 1173736 Jun  5 12:55 libggml-cpu-cannonlake.so
+-rw-r--r-- 1 root root 1169640 Jun  5 12:55 libggml-cpu-cascadelake.so
+-rw-r--r-- 1 root root 1169640 Jun  5 12:55 libggml-cpu-cooperlake.so
+-rw-r--r-- 1 root root 1034472 Jun  5 12:55 libggml-cpu-haswell.so
+-rw-r--r-- 1 root root 1169640 Jun  5 12:55 libggml-cpu-icelake.so
+-rw-r--r-- 1 root root  981320 Jun  5 12:55 libggml-cpu-ivybridge.so
+-rw-r--r-- 1 root root  977224 Jun  5 12:55 libggml-cpu-piledriver.so
+-rw-r--r-- 1 root root  973128 Jun  5 12:55 libggml-cpu-sandybridge.so
+-rw-r--r-- 1 root root 1444368 Jun  5 12:55 libggml-cpu-sapphirerapids.so
+-rw-r--r-- 1 root root 1173736 Jun  5 12:55 libggml-cpu-skylakex.so
+-rw-r--r-- 1 root root  784840 Jun  5 12:55 libggml-cpu-sse42.so
+-rw-r--r-- 1 root root  776680 Jun  5 12:55 libggml-cpu-x64.so
+-rw-r--r-- 1 root root 1169640 Jun  5 12:55 libggml-cpu-zen4.so
+lrwxrwxrwx 1 root root      12 Jun  5 12:56 libggml.so -> libggml.so.0
+lrwxrwxrwx 1 root root      17 Jun  5 12:56 libggml.so.0 -> libggml.so.0.13.1
+-rwxr-xr-x 1 root root  204368 Jun  5 12:56 libggml.so.0.13.1
+lrwxrwxrwx 1 root root      16 Aug 26  2025 libgomp.so.1 -> libgomp.so.1.0.0
+-rwxr-xr-x 1 root root  235072 Aug 26  2025 libgomp.so.1.0.0
+lrwxrwxrwx 1 root root      20 Jun  5 12:56 libllama-common.so -> libllama-common.so.0
+lrwxrwxrwx 1 root root      24 Jun  5 12:56 libllama-common.so.0 -> libllama-common.so.0.0.1
+-rwxr-xr-x 1 root root 4202272 Jun  5 12:56 libllama-common.so.0.0.1
+-rwxr-xr-x 1 root root   80912 Jun  5 12:56 libllama-quantize-impl.so
+-rwxr-xr-x 1 root root 2719600 Jun  5 12:56 libllama-server-impl.so
+lrwxrwxrwx 1 root root      13 Jun  5 12:56 libllama.so -> libllama.so.0
+lrwxrwxrwx 1 root root      17 Jun  5 12:56 libllama.so.0 -> libllama.so.0.0.1
+-rwxr-xr-x 1 root root 3182808 Jun  5 12:56 libllama.so.0.0.1
+lrwxrwxrwx 1 root root      12 Jun  5 12:56 libmtmd.so -> libmtmd.so.0
+lrwxrwxrwx 1 root root      16 Jun  5 12:56 libmtmd.so.0 -> libmtmd.so.0.0.1
+-rwxr-xr-x 1 root root 1305680 Jun  5 12:56 libmtmd.so.0.0.1
+-rwxr-xr-x 1 root root   15120 Jun  5 12:56 llama-quantize
+-rwxr-xr-x 1 root root   15120 Jun  5 12:56 llama-server
+drwxr-xr-x 2 root root    4096 Jun  4 22:32 vulkan
 $ ls -la /usr/local/bin/
-total 43808
-drwxr-xr-x  2 root root     4096 May 13 16:19 .
+total 37204
+drwxr-xr-x  2 root root     4096 Jun  7 16:03 .
 drwxr-xr-x 11 root root     4096 Feb 28 21:01 ..
--rwxr-xr-x  1 root root 44845312 May 13 05:31 ollama
-$ 
+-rwxr-xr-x  1 root root 38082448 Jun  5 14:03 ollama
+$
 ```
 
 Jika ingin meng-update Ollama, gunakan perintah instalasi di atas lagi. 
@@ -144,15 +169,15 @@ Suatu saat, jika ingin mengupdate model, gunakan perintah *ollama pull <nama-mod
 ```bash
 $ ollama pull codellama
 pulling manifest 
-pulling 3a43f93b78ec: 100% ▕█████████████████████████████████████████████████████████████████████████████████████████████████████████████▏ 3.8 GB                         
-pulling 8c17c2ebb0ea: 100% ▕█████████████████████████████████████████████████████████████████████████████████████████████████████████████▏ 7.0 KB                         
-pulling 590d74a5569b: 100% ▕█████████████████████████████████████████████████████████████████████████████████████████████████████████████▏ 4.8 KB                         
-pulling 2e0493f67d0c: 100% ▕█████████████████████████████████████████████████████████████████████████████████████████████████████████████▏   59 B                         
-pulling 7f6a57943a88: 100% ▕█████████████████████████████████████████████████████████████████████████████████████████████████████████████▏  120 B                         
-pulling 316526ac7323: 100% ▕█████████████████████████████████████████████████████████████████████████████████████████████████████████████▏  529 B                         
+pulling 3a43f93b78ec: 100% ▕████████████████████████████████████████████████████████████████████████████████████████████████▏ 3.8 GB                         
+pulling 8c17c2ebb0ea: 100% ▕████████████████████████████████████████████████████████████████████████████████████████████████▏ 7.0 KB                         
+pulling 590d74a5569b: 100% ▕████████████████████████████████████████████████████████████████████████████████████████████████▏ 4.8 KB                         
+pulling 2e0493f67d0c: 100% ▕████████████████████████████████████████████████████████████████████████████████████████████████▏   59 B                         
+pulling 7f6a57943a88: 100% ▕████████████████████████████████████████████████████████████████████████████████████████████████▏  120 B                         
+pulling 316526ac7323: 100% ▕████████████████████████████████████████████████████████████████████████████████████████████████▏  529 B                         
 verifying sha256 digest 
 writing manifest 
-success
+success 
 $
 ```
 
