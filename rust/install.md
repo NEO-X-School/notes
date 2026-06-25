@@ -31,6 +31,6 @@ Untuk meng-*update* (termasuk semua komponen dan target - jika ada update):
 $ rustup update stable
 ```
 
-![Update Rust](images/02-update-01.png)
+![Update Rust](images/02--update-01.png)
 
 Demikian proses instalasi Rust, happy hacking with Rust!
