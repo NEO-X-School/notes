@@ -35,6 +35,6 @@ Jika menghendaki versi lainnya, install dengan perintah berikut:
 
 Jika ingin meng-*uninstall* versi tertentu:
 
-![Install - 03](images/01--install-04.png) 
+![Uninstall](images/02--uninstall-01.png) 
 
 Demikian proses instalasi Node.js, happy hacking with Node.js!
