@@ -8,6 +8,7 @@ Repo ini berisi catatan-catatan penggunaan berbagai peranti pengembangan yang di
 2.  [Petunjuk Awal Penggunaan Git dan GItHub](petunjuk-git-github/). 
 3.  [Agentic Engineering: Menggunakan AI-Assisted Zed untuk Membangun Software yang Lebih Baik](zed-agentic-engineering/).  
 3.  [Macam-macam catatan terkait Rust](rust/).  
+3.  [Macam-macam catatan terkait Node.js](node.js/).  
 
 ![Lisensi - CC BY-SA International 4.0](images/cc-by-sa--small.png)  
 
